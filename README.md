@@ -18,7 +18,7 @@ ObjectifyAR offre un'esperienza completa di scansione, modellazione 3D e realtà
 
 ## Views
 
- <img width="100%" alt="Main Activity" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/b46eb0f6-56c2-4cfa-b3ce-599dcb9c1f27"> | <img width="100%" alt="Details Activity" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/166bd098-f8c8-4a94-a6bf-94923d52a07c"> | <img width="100%" alt="Adding Activity" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/04d70a33-6dd9-456f-9394-d2fe3d7d179d">
+ <img width="100%" alt="Main Activity" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/a3ebd69c-d441-48d6-b1f9-39b32897b38e"> | <img width="100%" alt="Details Activity" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/4f7afd6e-4311-4267-9b79-62e1bd2ef961"> | <img width="100%" alt="Adding Activity" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/8ea433d9-bb49-455d-9c2a-6219e6c4f491">
 **Main** Activity | **Details** Activity | **Acquisition** Activity
 
 ### Main Activity
