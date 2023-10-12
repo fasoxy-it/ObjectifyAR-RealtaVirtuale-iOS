@@ -18,8 +18,7 @@ ObjectifyAR offre un'esperienza completa di scansione, modellazione 3D e realtà
 
 ## Views
 
- <img width="100%" alt="Objects Main Activity" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/b46eb0f6-56c2-4cfa-b3ce-599dcb9c1f27"> | <img width="100%" alt="Object Detail Activity" src="![image](https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/d24b2815-f62c-4602-a714-2fd59c5d8c87)
-"> | <img width="100%" alt="Object Adding Activity" src="">  |  <img width="100%" alt="Workout Summary Activity" src="">
+ <img width="100%" alt="Objects Main Activity" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/b46eb0f6-56c2-4cfa-b3ce-599dcb9c1f27"> | <img width="100%" alt="Object Detail Activity" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/166bd098-f8c8-4a94-a6bf-94923d52a07c"> | <img width="100%" alt="Object Adding Activity" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/e656df75-f27b-4b93-9792-265263eb82c9">  |  <img width="100%" alt="Workout Summary Activity" src="">
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 Workout **List** Activity | Workout **Detail** Activity | Workout **Main** Activity | Workout **Summary** Activity
 
