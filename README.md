@@ -1,4 +1,4 @@
-# ObjectyfyAR
+# ObjectifyAR
 
 ## Idea
 
