@@ -1,5 +1,7 @@
 # ObjectifyAR
 
+> Realtà Virtuale Exam Project
+
 ## Idea
 
 L’idea di base del progetto è quella di realizzare un'applicazione che consente di scansionare e creare modelli tridimensionali di oggetti del mondo reale e di interagire con essi mediante sessioni di realtà aumentata.
