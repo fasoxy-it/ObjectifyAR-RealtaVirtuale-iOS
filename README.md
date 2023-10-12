@@ -18,6 +18,12 @@ ObjectifyAR offre un'esperienza completa di scansione, modellazione 3D e realtà
 
 ## Views
 
+ <img width="100%" alt="Objects Main Activity" src="![image](https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/78d9a3d7-385f-41aa-874d-e888c1bb6308)
+"> | <img width="100%" alt="Object Detail Activity" src="![image](https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/d24b2815-f62c-4602-a714-2fd59c5d8c87)
+"> | <img width="100%" alt="Object Adding Activity" src="">  |  <img width="100%" alt="Workout Summary Activity" src="">
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+Workout **List** Activity | Workout **Detail** Activity | Workout **Main** Activity | Workout **Summary** Activity
+
 ### Main View
 
 La Main View è una sessione di AR all'interno della quale è possibile scegliere mediante uno scorrimento laterale l'oggetto che si intende inserire all'interno della scena. È possibile inserire più di un oggetto all'interno della stessa scena. Una volta inserito, l'oggetto potrà essere interagito secondo le seguenti modalità:
