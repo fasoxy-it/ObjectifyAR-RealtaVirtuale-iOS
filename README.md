@@ -16,7 +16,7 @@ ObjectifyAR offre un'esperienza completa di scansione, modellazione 3D e realtà
 2. **Aggiunta di Informazioni**: L’applicazione offre, inoltre, la possibilità di aggiungere informazioni specifiche agli oggetti 3D generati.
 3. **Realtà Aumentata Interattiva**: L’applicazione consente, infine, di avviare una sessione di realtà aumentata in cui è possibile interagire con gli oggetti 3D generati. Questa funzionalità consente di posizionare gli oggetti virtuali nell'ambiente fisico e di esplorarli in tempo reale.
 
-## Immagini
+## Views
 
 ### Main View
 
@@ -29,7 +29,7 @@ La Main View è una sessione di AR all'interno della quale è possibile sceglier
 
 La Description View consente di visualizzare il modello 3D dell'oggetto e l'insieme di informazioni aggiuntive inserite in fase di acquisizione.
 
-## Acquisition View
+### Acquisition View
 
 __Work In Progress__
 
