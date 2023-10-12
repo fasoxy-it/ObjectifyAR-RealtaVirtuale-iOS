@@ -18,9 +18,9 @@ ObjectifyAR offre un'esperienza completa di scansione, modellazione 3D e realtà
 
 ## Views
 
- <img width="100%" alt="Main Activity" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/b46eb0f6-56c2-4cfa-b3ce-599dcb9c1f27"> | <img width="100%" alt="Detail Activity" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/166bd098-f8c8-4a94-a6bf-94923d52a07c"> | <img width="100%" alt="Adding Activity" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/e656df75-f27b-4b93-9792-265263eb82c9">
+ <img width="100%" alt="Main Activity" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/b46eb0f6-56c2-4cfa-b3ce-599dcb9c1f27"> | <img width="100%" alt="Details Activity" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/166bd098-f8c8-4a94-a6bf-94923d52a07c"> | <img width="100%" alt="Adding Activity" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/e656df75-f27b-4b93-9792-265263eb82c9">
 :-------------------------:|:-------------------------:|:-------------------------:
-ObjectifyAR **Main** Activity | ObjectifyAR **Detail** Activity | ObjectifyAR **Acquisition** Activity
+**Main** Activity | **Details** Activity | **Acquisition** Activity
 
 ### Main Activity
 
@@ -29,13 +29,13 @@ La Main View è una sessione di AR all'interno della quale è possibile sceglier
 * **Single Touch**: Attraverso un Single Touch sarà possibile accedere alla Description View dell'oggetto.
 * **Force Touch**: Attraverso un Force Touch sarà, invece, possibile rimuovere dalla scena l'oggetto.
 
-### Description Activity
+### Details Activity
 
 La Description View consente di visualizzare il modello 3D dell'oggetto e l'insieme di informazioni aggiuntive inserite in fase di acquisizione.
 
 ### Acquisition Activity
 
-_Work In Progress_
+_Work In Progress_...
 
 ## Target
 
