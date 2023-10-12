@@ -45,6 +45,11 @@ L'applicazione ha il potenziale per servire diverse categorie di utenti, tra cui
 * **Appassionati di Realtà Aumentata**: Coloro che sono interessati alla realtà aumentata possono utilizzare l'applicazione per esplorare e interagire con oggetti virtuali nel loro ambiente fisico.
 * **Ricercatori e Educatori**: ObjectifyAR può essere utilizzato nell'ambito dell'istruzione e della ricerca, offrendo nuove modalità di visualizzazione di oggetti e concetti 3D.
 
+## Technologies
+
+* XCode
+* Adobe XD
+
 ## Tag
 
 #iOS, #AR, #3D
