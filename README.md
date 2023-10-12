@@ -22,8 +22,8 @@ ObjectifyAR offre un'esperienza completa di scansione, modellazione 3D e realtà
 
 La Main View è una sessione di AR all'interno della quale è possibile scegliere mediante uno scorrimento laterale l'oggetto che si intende inserire all'interno della scena. È possibile inserire più di un oggetto all'interno della stessa scena. Una volta inserito, l'oggetto potrà essere interagito secondo le seguenti modalità:
 
-* Single Touch: Attraverso un Single Touch sarà possibile accedere alla Description View dell'oggetto.
-* Force Touch: Attraverso un Force Touch sarà, invece, possibile rimuovere dalla scena l'oggetto.
+* **Single Touch**: Attraverso un Single Touch sarà possibile accedere alla Description View dell'oggetto.
+* **Force Touch**: Attraverso un Force Touch sarà, invece, possibile rimuovere dalla scena l'oggetto.
 
 ### Description View
 
@@ -31,15 +31,15 @@ La Description View consente di visualizzare il modello 3D dell'oggetto e l'insi
 
 ### Acquisition View
 
-__Work In Progress__
+_Work In Progress_
 
 ## Target
 
 L'applicazione ha il potenziale per servire diverse categorie di utenti, tra cui:
 
-* Artisti: Gli artisti possono utilizzare ObjectifyAR per creare modelli 3D delle loro opere d'arte e renderle accessibili al pubblico mediante la realtà aumentata, offrendo nuove modalità di fruizione delle opere.
-* Appassionati di Realtà Aumentata: Coloro che sono interessati alla realtà aumentata possono utilizzare l'applicazione per esplorare e interagire con oggetti virtuali nel loro ambiente fisico.
-* Ricercatori e Educatori: ObjectifyAR può essere utilizzato nell'ambito dell'istruzione e della ricerca, offrendo nuove modalità di visualizzazione di oggetti e concetti 3D.
+* **Artisti**: Gli artisti possono utilizzare ObjectifyAR per creare modelli 3D delle loro opere d'arte e renderle accessibili al pubblico mediante la realtà aumentata, offrendo nuove modalità di fruizione delle opere.
+* **Appassionati di Realtà Aumentata**: Coloro che sono interessati alla realtà aumentata possono utilizzare l'applicazione per esplorare e interagire con oggetti virtuali nel loro ambiente fisico.
+* **Ricercatori e Educatori**: ObjectifyAR può essere utilizzato nell'ambito dell'istruzione e della ricerca, offrendo nuove modalità di visualizzazione di oggetti e concetti 3D.
 
 ## Tag
 
