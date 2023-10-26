@@ -11,6 +11,8 @@
 		0BA4122B2AEA72CC00A4F5A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA4122A2AEA72CC00A4F5A6 /* ContentView.swift */; };
 		0BA4122D2AEA72CF00A4F5A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA4122C2AEA72CF00A4F5A6 /* Assets.xcassets */; };
 		0BA412302AEA72CF00A4F5A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA4122F2AEA72CF00A4F5A6 /* Preview Assets.xcassets */; };
+		0BA412392AEA7D3700A4F5A6 /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA412382AEA7D3700A4F5A6 /* ARViewContainer.swift */; };
+		0BA4123B2AEA851300A4F5A6 /* jar.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 0BA4123A2AEA851300A4F5A6 /* jar.usdz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		0BA4122A2AEA72CC00A4F5A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0BA4122C2AEA72CF00A4F5A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BA4122F2AEA72CF00A4F5A6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0BA412382AEA7D3700A4F5A6 /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
+		0BA4123A2AEA851300A4F5A6 /* jar.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = jar.usdz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +57,9 @@
 			children = (
 				0BA412282AEA72CC00A4F5A6 /* ObjectifyARApp.swift */,
 				0BA4122A2AEA72CC00A4F5A6 /* ContentView.swift */,
+				0BA412382AEA7D3700A4F5A6 /* ARViewContainer.swift */,
 				0BA4122C2AEA72CF00A4F5A6 /* Assets.xcassets */,
+				0BA4123A2AEA851300A4F5A6 /* jar.usdz */,
 				0BA4122E2AEA72CF00A4F5A6 /* Preview Content */,
 			);
 			path = ObjectifyAR;
@@ -126,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BA412302AEA72CF00A4F5A6 /* Preview Assets.xcassets in Resources */,
+				0BA4123B2AEA851300A4F5A6 /* jar.usdz in Resources */,
 				0BA4122D2AEA72CF00A4F5A6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BA412392AEA7D3700A4F5A6 /* ARViewContainer.swift in Sources */,
 				0BA4122B2AEA72CC00A4F5A6 /* ContentView.swift in Sources */,
 				0BA412292AEA72CC00A4F5A6 /* ObjectifyARApp.swift in Sources */,
 			);
@@ -275,6 +283,7 @@
 				DEVELOPMENT_TEAM = 4DG7W4A27Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to the camera to enable Augmented Reality";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +313,7 @@
 				DEVELOPMENT_TEAM = 4DG7W4A27Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to the camera to enable Augmented Reality";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
