@@ -1,5 +1,7 @@
 # ObjectifyAR
 
+> Realtà Virtuale Exam Project
+
 ## Idea
 
 L’idea di base del progetto è quella di realizzare un'applicazione che consente di scansionare e creare modelli tridimensionali di oggetti del mondo reale e di interagire con essi mediante sessioni di realtà aumentata.
@@ -44,6 +46,11 @@ L'applicazione ha il potenziale per servire diverse categorie di utenti, tra cui
 * **Artisti**: Gli artisti possono utilizzare ObjectifyAR per creare modelli 3D delle loro opere d'arte e renderle accessibili al pubblico mediante la realtà aumentata, offrendo nuove modalità di fruizione delle opere.
 * **Appassionati di Realtà Aumentata**: Coloro che sono interessati alla realtà aumentata possono utilizzare l'applicazione per esplorare e interagire con oggetti virtuali nel loro ambiente fisico.
 * **Ricercatori e Educatori**: ObjectifyAR può essere utilizzato nell'ambito dell'istruzione e della ricerca, offrendo nuove modalità di visualizzazione di oggetti e concetti 3D.
+
+## Technologies
+
+* XCode
+* Adobe XD
 
 ## Tag
 
