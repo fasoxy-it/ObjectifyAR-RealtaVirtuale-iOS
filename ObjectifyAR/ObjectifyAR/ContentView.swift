@@ -8,6 +8,7 @@
 import SwiftUI
 import RealityKit
 import ARKit
+import FocusEntity
 
 struct ContentView : View {
     
@@ -50,16 +51,7 @@ struct ARViewContainer: UIViewRepresentable {
     
     func makeUIView(context: Context) -> ARView {
         
-        let arView = ARView(frame: .zero)
-        let config = ARWorldTrackingConfiguration()
-        config.planeDetection = [.horizontal, .vertical]
-        config.environmentTexturing = .automatic
-        
-        if ARWorldTrackingConfiguration.supportsSceneReconstruction(.mesh) {
-            config.sceneReconstruction = .mesh
-        }
-        
-        arView.session.run(config)
+        let arView = CustomARView(frame: .zero)
         
         return arView
         
@@ -74,7 +66,7 @@ struct ARViewContainer: UIViewRepresentable {
                 print("DEBUG: Adding model to scene - \(model.modelName)")
                 
                 let anchorEntity = AnchorEntity(plane: .any)
-                anchorEntity.addChild(modelEntity.clone(recursive: true))
+                anchorEntity.addChild(modelEntity.clone(recursive: true ))
                 
                 uiView.scene.addAnchor(anchorEntity)
                 
@@ -89,6 +81,57 @@ struct ARViewContainer: UIViewRepresentable {
             
         }
         
+    }
+    
+}
+
+class CustomARView: ARView {
+    
+    let focusSquare = FESquare()
+    
+    required init(frame frameRect: CGRect) {
+        
+        super.init(frame: frameRect)
+        
+        focusSquare.viewDelegate = self
+        focusSquare.delegate =  self
+        //focusSquare.delgate = self
+        focusSquare.setAutoUpdate(to: true)
+        
+        self.setupARView()
+        
+    }
+    
+    @objc required dynamic init?(coder decoder: NSCoder) {
+        
+        fatalError("init(coder:) has not been implemented")
+        
+    }
+    
+    func setupARView() {
+        
+        let config = ARWorldTrackingConfiguration()
+        config.planeDetection = [.horizontal, .vertical]
+        config.environmentTexturing = .automatic
+        
+        if ARWorldTrackingConfiguration.supportsSceneReconstruction(.mesh) {
+            config.sceneReconstruction = .mesh
+        }
+        
+        self.session.run(config)
+        
+    }
+    
+}
+
+extension CustomARView: FEDelegate {
+    
+    func toTrackingState() {
+        print("tracking")
+    }
+    
+    func toInitializingState() {
+        print("initializing")
     }
     
 }
