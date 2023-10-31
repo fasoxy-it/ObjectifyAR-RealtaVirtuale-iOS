@@ -11,19 +11,20 @@ import ARKit
 
 struct ContentView : View {
     
-    @State private var selectedModel: String?
+    @State private var selectedModel: Model?
     
-    private var models: [String] = {
+    private var models: [Model] = {
         
         let filemanager = FileManager.default
         
         guard let path = Bundle.main.resourcePath, let files = try? filemanager.contentsOfDirectory(atPath: path) else {return []}
     
-        var availableModels: [String] = []
+        var availableModels: [Model] = []
         
         for filename in files where filename.hasSuffix("usdz") {
             let  modelName = filename.replacingOccurrences(of: ".usdz", with: "")
-            availableModels.append(modelName)
+            let model = Model(modelName: modelName)
+            availableModels.append(model)
         }
         
         return availableModels
@@ -45,7 +46,7 @@ struct ContentView : View {
 
 struct ARViewContainer: UIViewRepresentable {
     
-    @Binding var selectedModel: String?
+    @Binding var selectedModel: Model?
     
     func makeUIView(context: Context) -> ARView {
         
@@ -66,15 +67,26 @@ struct ARViewContainer: UIViewRepresentable {
     
     func updateUIView(_ uiView: ARView, context: Context) {
         
-        if let modelName = selectedModel {
-            let modelEntity = try! ModelEntity.loadModel(named: modelName)
-            let anchorEntity = AnchorEntity(plane: .any)
-            anchorEntity.addChild(modelEntity)
-            uiView.scene.addAnchor(anchorEntity)
+        if let model = selectedModel {
             
-            modelEntity.generateCollisionShapes(recursive: true)
+            if let modelEntity = model.modelEntity {
+                
+                print("DEBUG: Adding model to scene - \(model.modelName)")
+                
+                let anchorEntity = AnchorEntity(plane: .any)
+                anchorEntity.addChild(modelEntity.clone(recursive: true))
+                
+                uiView.scene.addAnchor(anchorEntity)
+                
+                //modelEntity.generateCollisionShapes(recursive: true)
+                
+                //uiView.installGestures([.translation, .rotation, .scale], for: modelEntity)
+                
+            } else {
+                print("DEBUG: Unable to load modelEntity for - \(model.modelName)")
+            }
             
-            uiView.installGestures([.translation, .rotation, .scale], for: modelEntity)
+            
         }
         
     }
@@ -83,9 +95,9 @@ struct ARViewContainer: UIViewRepresentable {
 
 struct ModelPickerView: View {
     
-    @Binding var selectedModel: String?
+    @Binding var selectedModel: Model?
     
-    var models: [String]
+    var models: [Model]
     
     var body: some View {
         
@@ -93,10 +105,10 @@ struct ModelPickerView: View {
             HStack(spacing: 30) {
                 ForEach(0 ..< models.count) { index in
                     Button(action: {
-                        print("DEBUG: Selected model with name: \(models[index])")
+                        print("DEBUG: Selected model with name: \(models[index].modelName)")
                         selectedModel = models[index]
                     }) {
-                        Image(uiImage: UIImage(named: models[index])!)
+                        Image(uiImage: models[index].image)
                             .resizable()
                             .frame(height: 80)
                             .aspectRatio(1/1, contentMode: .fit)
