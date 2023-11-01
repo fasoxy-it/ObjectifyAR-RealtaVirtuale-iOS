@@ -66,18 +66,45 @@ struct ARViewContainer: UIViewRepresentable {
                 print("DEBUG: Adding model to scene - \(model.modelName)")
                 
                 let anchorEntity = AnchorEntity(plane: .any)
-                anchorEntity.addChild(modelEntity.clone(recursive: true ))
+                anchorEntity.name = model.modelName
+                anchorEntity.addChild(modelEntity)
                 
                 uiView.scene.addAnchor(anchorEntity)
                 
-                //modelEntity.generateCollisionShapes(recursive: true)
+                modelEntity.generateCollisionShapes(recursive: true)
                 
-                //uiView.installGestures([.translation, .rotation, .scale], for: modelEntity)
+                uiView.installGestures([.translation, .rotation, .scale], for: modelEntity)
                 
             } else {
                 print("DEBUG: Unable to load modelEntity for - \(model.modelName)")
             }
             
+            
+        }
+        
+    }
+    
+}
+
+extension ARView {
+    
+    func enableObjectRemoval() {
+        
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(recognizer:)))
+        self.addGestureRecognizer(longPressGestureRecognizer)
+        
+    }
+    
+    @objc func handleLongPress(recognizer: UILongPressGestureRecognizer) {
+        
+        let location = recognizer.location(in: self)
+        
+        if let entity = self.entity(at: location) {
+            
+            if let anchorEntity = entity.anchor {
+                anchorEntity.removeFromParent()
+                print("DEBUG: Removed anchor with name: \(anchorEntity.name)")
+            }
             
         }
         
@@ -95,10 +122,10 @@ class CustomARView: ARView {
         
         focusSquare.viewDelegate = self
         focusSquare.delegate =  self
-        //focusSquare.delgate = self
         focusSquare.setAutoUpdate(to: true)
         
         self.setupARView()
+        self.enableObjectRemoval()
         
     }
     
@@ -119,6 +146,8 @@ class CustomARView: ARView {
         }
         
         self.session.run(config)
+        
+        self.enableObjectRemoval()
         
     }
     
@@ -151,12 +180,16 @@ struct ModelPickerView: View {
                         print("DEBUG: Selected model with name: \(models[index].modelName)")
                         selectedModel = models[index]
                     }) {
-                        Image(uiImage: models[index].image)
-                            .resizable()
-                            .frame(height: 80)
-                            .aspectRatio(1/1, contentMode: .fit)
-                            .background(Color.white)
-                            .cornerRadius(12)
+                        VStack {
+                            Image(uiImage: models[index].image)
+                                .resizable()
+                                .frame(height: 80)
+                                .aspectRatio(1/1, contentMode: .fit)
+                                .background(Color.white)
+                                .cornerRadius(12)
+                            Text(models[index].modelName)
+                        }
+                        
                     }
                         .buttonStyle(PlainButtonStyle())
                 }
