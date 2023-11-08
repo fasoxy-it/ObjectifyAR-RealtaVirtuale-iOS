@@ -16,6 +16,7 @@
 		0BA412802AF13F3500A4F5A6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA4127F2AF13F3500A4F5A6 /* Model.swift */; };
 		0BA412822AF14FFC00A4F5A6 /* toy.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 0BA412812AF14FFC00A4F5A6 /* toy.usdz */; };
 		0BA412852AF1564700A4F5A6 /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA412842AF1564700A4F5A6 /* FocusEntity */; };
+		0BF827442AFBBD51003351AC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF827432AFBBD51003351AC /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		0BA4127A2AEEBDB500A4F5A6 /* camera.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = camera.usdz; sourceTree = "<group>"; };
 		0BA4127F2AF13F3500A4F5A6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		0BA412812AF14FFC00A4F5A6 /* toy.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy.usdz; sourceTree = "<group>"; };
+		0BF827432AFBBD51003351AC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				0BA4127E2AEECCC300A4F5A6 /* Models */,
 				0BA4126E2AEEB8DF00A4F5A6 /* Assets.xcassets */,
 				0BA412702AEEB8DF00A4F5A6 /* Preview Content */,
+				0BF827432AFBBD51003351AC /* DetailView.swift */,
 			);
 			path = ObjectifyAR;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BA412802AF13F3500A4F5A6 /* Model.swift in Sources */,
+				0BF827442AFBBD51003351AC /* DetailView.swift in Sources */,
 				0BA4126D2AEEB8DC00A4F5A6 /* ContentView.swift in Sources */,
 				0BA4126B2AEEB8DC00A4F5A6 /* AppDelegate.swift in Sources */,
 			);

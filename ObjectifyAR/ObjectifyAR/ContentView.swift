@@ -52,7 +52,6 @@ struct ARViewContainer: UIViewRepresentable {
     func makeUIView(context: Context) -> ARView {
         
         let arView = CustomARView(frame: .zero)
-        
         return arView
         
     }
@@ -86,7 +85,48 @@ struct ARViewContainer: UIViewRepresentable {
     
 }
 
-extension ARView {
+class CustomARView: ARView {
+    
+    let focusSquare = FESquare()
+    
+    required init(frame frameRect: CGRect) {
+        
+        super.init(frame: frameRect)
+        
+        focusSquare.viewDelegate = self
+        focusSquare.delegate =  self
+        focusSquare.setAutoUpdate(to: true)
+        
+        self.setupARView()
+        
+    }
+    
+    @objc required dynamic init?(coder decoder: NSCoder) {
+        
+        fatalError("init(coder:) has not been implemented")
+        
+    }
+    
+    func setupARView() {
+        
+        let config = ARWorldTrackingConfiguration()
+        config.planeDetection = [.horizontal, .vertical]
+        config.environmentTexturing = .automatic
+        
+        if ARWorldTrackingConfiguration.supportsSceneReconstruction(.mesh) {
+            config.sceneReconstruction = .mesh
+        }
+        
+        self.session.run(config)
+        
+        self.enableObjectRemoval()
+        self.enableTap()
+        
+    }
+    
+}
+
+extension CustomARView {
     
     func enableObjectRemoval() {
         
@@ -110,60 +150,14 @@ extension ARView {
         
     }
     
-}
-
-class CustomARView: ARView {
-    
-    let focusSquare = FESquare()
-    
-    required init(frame frameRect: CGRect) {
-        
-        super.init(frame: frameRect)
-        
-        focusSquare.viewDelegate = self
-        focusSquare.delegate =  self
-        focusSquare.setAutoUpdate(to: true)
-        
-        self.setupARView()
-        self.enableObjectRemoval()
-        
-    }
-    
-    @objc required dynamic init?(coder decoder: NSCoder) {
-        
-        fatalError("init(coder:) has not been implemented")
-        
-    }
-    
-    func setupARView() {
-        
-        let config = ARWorldTrackingConfiguration()
-        config.planeDetection = [.horizontal, .vertical]
-        config.environmentTexturing = .automatic
-        
-        if ARWorldTrackingConfiguration.supportsSceneReconstruction(.mesh) {
-            config.sceneReconstruction = .mesh
-        }
-        
-        self.session.run(config)
-        
-        
-        
-        self.enableObjectRemoval()
-        self.enableTap()
-        
-    }
-    
-}
-
-extension CustomARView {
-    
     func enableTap() {
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
         self.addGestureRecognizer(tapGesture)
     }
     
     @objc func handleTap(recognizer: UIGestureRecognizer) {
+        
         print("DEBUG: Apparently works!")
         
         let location = recognizer.location(in: self)
@@ -172,6 +166,7 @@ extension CustomARView {
             
             if let anchorEntity = entity.anchor {
                 print("DEBUG: Tapped anchor with name: \(anchorEntity.name)")
+                
             }
             
         }
