@@ -147,8 +147,34 @@ class CustomARView: ARView {
         
         self.session.run(config)
         
-        self.enableObjectRemoval()
         
+        
+        self.enableObjectRemoval()
+        self.enableTap()
+        
+    }
+    
+}
+
+extension CustomARView {
+    
+    func enableTap() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
+        self.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func handleTap(recognizer: UIGestureRecognizer) {
+        print("DEBUG: Apparently works!")
+        
+        let location = recognizer.location(in: self)
+        
+        if let entity = self.entity(at: location) {
+            
+            if let anchorEntity = entity.anchor {
+                print("DEBUG: Tapped anchor with name: \(anchorEntity.name)")
+            }
+            
+        }
     }
     
 }
