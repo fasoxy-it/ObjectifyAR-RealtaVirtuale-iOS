@@ -9,13 +9,13 @@ import SwiftUI
 
 struct DetailView: View {
     
-    var model: String?
+    var model: Model?
     
     var body: some View {
-        Text("Hello, \(model!)")
+        Text("Hello, \(model!.modelName)")
     }
 }
 
 #Preview {
-    DetailView(model: "jar")
+    DetailView(model: Model(modelName: "jar"))
 }

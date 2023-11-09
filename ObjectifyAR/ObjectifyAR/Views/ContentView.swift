@@ -13,7 +13,7 @@ import FocusEntity
 struct ContentView : View {
     
     @State private var selectedModel: Model?
-    @State private var tappedModel: String = "jar"
+    @State private var tappedModel: Model = Model(modelName: "jar")
     @State private var isDetailViewActive: Bool = false
     
     private var models: [Model] = {
@@ -60,7 +60,7 @@ struct ARViewContainer: UIViewRepresentable {
     
     @Binding var selectedModel: Model?
     @Binding var isDetailViewActive: Bool
-    @Binding var tappedModel: String
+    @Binding var tappedModel: Model
     
     func makeUIView(context: Context) -> ARView {
         

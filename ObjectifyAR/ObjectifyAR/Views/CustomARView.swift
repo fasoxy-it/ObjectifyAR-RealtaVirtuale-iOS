@@ -13,11 +13,11 @@ import FocusEntity
 class CustomARView: ARView {
     
     @Binding var isDetailViewActive: Bool
-    @Binding var tappedModel: String
+    @Binding var tappedModel: Model
     
     let focusSquare = FESquare()
     
-    required init(frame frameRect: CGRect, isDetailViewActive: Binding<Bool>, tappedModel: Binding<String>) {
+    required init(frame frameRect: CGRect, isDetailViewActive: Binding<Bool>, tappedModel: Binding<Model>) {
         
         self._isDetailViewActive = isDetailViewActive
         self._tappedModel = tappedModel
@@ -99,7 +99,7 @@ extension CustomARView {
             if let anchorEntity = entity.anchor {
                 print("DEBUG: Tapped anchor with name: \(anchorEntity.name)")
                 isDetailViewActive = true
-                tappedModel = anchorEntity.name
+                tappedModel = Model(modelName: anchorEntity.name) 
                 
             }
             
