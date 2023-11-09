@@ -74,9 +74,14 @@ struct ARViewContainer: UIViewRepresentable {
                 
                 uiView.installGestures([.translation, .rotation, .scale], for: modelEntity)
                 
+                DispatchQueue.main.async {
+                    selectedModel = nil
+                }
+                
             } else {
                 print("DEBUG: Unable to load modelEntity for - \(model.modelName)")
             }
+            
             
             
         }
