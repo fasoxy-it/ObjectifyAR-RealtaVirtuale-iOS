@@ -12,7 +12,17 @@ struct DetailView: View {
     var model: Model?
     
     var body: some View {
-        Text("Hello, \(model!.modelName)")
+        
+        VStack {
+            Image(uiImage: model!.image)
+                .resizable()
+                .frame(width: 80, height: 80)
+                .aspectRatio(1/1, contentMode: .fit)
+                .background(Color.white)
+                .cornerRadius(12)
+            Text("\(model!.modelName)")
+        }
+        
     }
 }
 

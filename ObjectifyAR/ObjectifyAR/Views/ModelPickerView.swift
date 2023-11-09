@@ -28,7 +28,7 @@ struct ModelPickerView: View {
                         VStack {
                             Image(uiImage: models[index].image)
                                 .resizable()
-                                .frame(height: 80)
+                                .frame(width: 80, height: 80)
                                 .aspectRatio(1/1, contentMode: .fit)
                                 .background(Color.white)
                                 .cornerRadius(12)
