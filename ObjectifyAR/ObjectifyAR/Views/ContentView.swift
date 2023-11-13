@@ -109,7 +109,7 @@ struct ARViewContainer: UIViewRepresentable {
         
         print("DEBUG: Playing audio")
         
-        if let soundURL = Bundle.main.url(forResource: "sound", withExtension: "m4a") {
+        if let soundURL = Bundle.main.url(forResource: "sound", withExtension: "mp3") {
             
             do {
                 print("DEBUG: Effectively playing audio")
