@@ -14,13 +14,21 @@ class CustomARView: ARView {
     
     @Binding var isDetailViewActive: Bool
     @Binding var tappedModel: Model
+    @Binding var audioPlayer: AVAudioPlayer!
+    
+    
+    //var audioPlayer: AVAudioPlayer = AVAudioPlayer()
     
     let focusSquare = FESquare()
     
-    required init(frame frameRect: CGRect, isDetailViewActive: Binding<Bool>, tappedModel: Binding<Model>) {
+    required init(frame frameRect: CGRect, isDetailViewActive: Binding<Bool>, tappedModel: Binding<Model>, audioPlayer: Binding<AVAudioPlayer?>) {
         
         self._isDetailViewActive = isDetailViewActive
         self._tappedModel = tappedModel
+        self._audioPlayer = audioPlayer
+        
+        
+        
         super.init(frame: frameRect)
         
         focusSquare.viewDelegate = self
@@ -77,6 +85,7 @@ extension CustomARView {
             
             if let anchorEntity = entity.anchor {
                 anchorEntity.removeFromParent()
+                playAudio()
                 print("DEBUG: Removed anchor with name: \(anchorEntity.name)")
             }
             
@@ -104,6 +113,24 @@ extension CustomARView {
             }
             
         }
+    }
+    
+    func playAudio() {
+        
+        print("DEBUG: Playing audio")
+        
+        if let soundURL = Bundle.main.url(forResource: "sound", withExtension: "mp3") {
+            
+            do {
+                print("DEBUG: Effectively playing audio")
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer.play()
+            } catch {
+                print("DEBUG: Unable to play audio")
+            }
+            
+        }
+        
     }
     
 }

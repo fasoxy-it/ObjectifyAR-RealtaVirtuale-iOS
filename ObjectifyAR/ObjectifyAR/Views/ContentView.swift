@@ -67,7 +67,8 @@ struct ARViewContainer: UIViewRepresentable {
     
     func makeUIView(context: Context) -> ARView {
         
-        let arView = CustomARView(frame: .zero, isDetailViewActive: $isDetailViewActive, tappedModel: $tappedModel)
+        let arView = CustomARView(frame: .zero, isDetailViewActive: $isDetailViewActive, tappedModel: $tappedModel, audioPlayer: $audioPlayer)
+        
         return arView
         
     }
@@ -114,7 +115,7 @@ struct ARViewContainer: UIViewRepresentable {
             do {
                 print("DEBUG: Effectively playing audio")
                 audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-                audioPlayer?.play()
+                audioPlayer!.play()
             } catch {
                 print("DEBUG: Unable to play audio")
             }
