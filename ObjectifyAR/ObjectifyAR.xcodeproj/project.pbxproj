@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B5B85292B0232170077302C /* sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0B5B85282B0232170077302C /* sound.mp3 */; };
 		0BA4126B2AEEB8DC00A4F5A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA4126A2AEEB8DC00A4F5A6 /* AppDelegate.swift */; };
 		0BA4126D2AEEB8DC00A4F5A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA4126C2AEEB8DC00A4F5A6 /* ContentView.swift */; };
 		0BA4126F2AEEB8DF00A4F5A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA4126E2AEEB8DF00A4F5A6 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B5B85282B0232170077302C /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound.mp3; sourceTree = "<group>"; };
 		0BA412672AEEB8DC00A4F5A6 /* ObjectifyAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjectifyAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA4126A2AEEB8DC00A4F5A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BA4126C2AEEB8DC00A4F5A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				0BA4126A2AEEB8DC00A4F5A6 /* AppDelegate.swift */,
 				0BF827472AFD35C6003351AC /* Views */,
 				0BA4127F2AF13F3500A4F5A6 /* Model.swift */,
+				0B5B85282B0232170077302C /* sound.mp3 */,
 				0BA4127E2AEECCC300A4F5A6 /* Models */,
 				0BA4126E2AEEB8DF00A4F5A6 /* Assets.xcassets */,
 				0BA412702AEEB8DF00A4F5A6 /* Preview Content */,
@@ -174,6 +177,7 @@
 				0BA412792AEEBD3000A4F5A6 /* jar.usdz in Resources */,
 				0BA4126F2AEEB8DF00A4F5A6 /* Assets.xcassets in Resources */,
 				0BA4127B2AEEBDB500A4F5A6 /* camera.usdz in Resources */,
+				0B5B85292B0232170077302C /* sound.mp3 in Resources */,
 				0BA412822AF14FFC00A4F5A6 /* toy.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,12 +9,14 @@ import SwiftUI
 import RealityKit
 import ARKit
 import FocusEntity
+import AVKit
 
 struct ContentView : View {
     
     @State private var selectedModel: Model?
     @State private var tappedModel: Model = Model(modelName: "jar")
     @State private var isDetailViewActive: Bool = false
+    @State private var audioPlayer: AVAudioPlayer!
     
     private var models: [Model] = {
         
@@ -44,7 +46,7 @@ struct ContentView : View {
                     EmptyView()
                 }
                 
-                ARViewContainer(selectedModel: $selectedModel, isDetailViewActive: $isDetailViewActive, tappedModel: $tappedModel)
+                ARViewContainer(selectedModel: $selectedModel, isDetailViewActive: $isDetailViewActive, tappedModel: $tappedModel, audioPlayer: $audioPlayer)
                     .edgesIgnoringSafeArea(.all)
                 
                 ModelPickerView(selectedModel: $selectedModel, models: models)
@@ -61,6 +63,7 @@ struct ARViewContainer: UIViewRepresentable {
     @Binding var selectedModel: Model?
     @Binding var isDetailViewActive: Bool
     @Binding var tappedModel: Model
+    @Binding var audioPlayer: AVAudioPlayer!
     
     func makeUIView(context: Context) -> ARView {
         
@@ -88,8 +91,11 @@ struct ARViewContainer: UIViewRepresentable {
                 uiView.installGestures([.translation, .rotation, .scale], for: modelEntity)
                 
                 DispatchQueue.main.async {
+                    playAudio()
                     selectedModel = nil
                 }
+                
+                
                 
             } else {
                 print("DEBUG: Unable to load modelEntity for - \(model.modelName)")
@@ -98,6 +104,25 @@ struct ARViewContainer: UIViewRepresentable {
         }
         
     }
+    
+    func playAudio() {
+        
+        print("DEBUG: Playing audio")
+        
+        if let soundURL = Bundle.main.url(forResource: "sound", withExtension: "m4a") {
+            
+            do {
+                print("DEBUG: Effectively playing audio")
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.play()
+            } catch {
+                print("DEBUG: Unable to play audio")
+            }
+            
+        }
+        
+    }
+    
     
 }
 
