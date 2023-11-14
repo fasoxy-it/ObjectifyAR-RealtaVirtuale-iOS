@@ -1,0 +1,451 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B5B852C2B0276030077302C /* add.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0B5B852B2B0276030077302C /* add.mp3 */; };
+		0B5B852E2B0276090077302C /* remove.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0B5B852D2B0276090077302C /* remove.mp3 */; };
+		0B5B85322B038D6A0077302C /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 0B5B85312B038D6A0077302C /* FocusEntity */; };
+		0B5B85352B038F7F0077302C /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 0B5B85342B038F7F0077302C /* FocusEntity */; };
+		0B5B85372B03BC620077302C /* CustomARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B85362B03BC620077302C /* CustomARViewContainer.swift */; };
+		0BA4126B2AEEB8DC00A4F5A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA4126A2AEEB8DC00A4F5A6 /* AppDelegate.swift */; };
+		0BA4126D2AEEB8DC00A4F5A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA4126C2AEEB8DC00A4F5A6 /* ContentView.swift */; };
+		0BA4126F2AEEB8DF00A4F5A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA4126E2AEEB8DF00A4F5A6 /* Assets.xcassets */; };
+		0BA412722AEEB8DF00A4F5A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA412712AEEB8DF00A4F5A6 /* Preview Assets.xcassets */; };
+		0BA412792AEEBD3000A4F5A6 /* jar.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 0BA412782AEEBD3000A4F5A6 /* jar.usdz */; };
+		0BA4127B2AEEBDB500A4F5A6 /* camera.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 0BA4127A2AEEBDB500A4F5A6 /* camera.usdz */; };
+		0BA412802AF13F3500A4F5A6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA4127F2AF13F3500A4F5A6 /* Model.swift */; };
+		0BA412822AF14FFC00A4F5A6 /* toy.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 0BA412812AF14FFC00A4F5A6 /* toy.usdz */; };
+		0BF827442AFBBD51003351AC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF827432AFBBD51003351AC /* DetailView.swift */; };
+		0BF827492AFD365C003351AC /* CustomARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF827482AFD365C003351AC /* CustomARView.swift */; };
+		0BF8274B2AFD36F3003351AC /* ModelPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF8274A2AFD36F3003351AC /* ModelPickerView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0B5B852B2B0276030077302C /* add.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = add.mp3; sourceTree = "<group>"; };
+		0B5B852D2B0276090077302C /* remove.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = remove.mp3; sourceTree = "<group>"; };
+		0B5B85362B03BC620077302C /* CustomARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomARViewContainer.swift; sourceTree = "<group>"; };
+		0BA412672AEEB8DC00A4F5A6 /* ObjectifyAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjectifyAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BA4126A2AEEB8DC00A4F5A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0BA4126C2AEEB8DC00A4F5A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0BA4126E2AEEB8DF00A4F5A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0BA412712AEEB8DF00A4F5A6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0BA412782AEEBD3000A4F5A6 /* jar.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = jar.usdz; sourceTree = "<group>"; };
+		0BA4127A2AEEBDB500A4F5A6 /* camera.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = camera.usdz; sourceTree = "<group>"; };
+		0BA4127F2AF13F3500A4F5A6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		0BA412812AF14FFC00A4F5A6 /* toy.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy.usdz; sourceTree = "<group>"; };
+		0BF827432AFBBD51003351AC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		0BF827482AFD365C003351AC /* CustomARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomARView.swift; sourceTree = "<group>"; };
+		0BF8274A2AFD36F3003351AC /* ModelPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPickerView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0BA412642AEEB8DC00A4F5A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B5B85352B038F7F0077302C /* FocusEntity in Frameworks */,
+				0B5B85322B038D6A0077302C /* FocusEntity in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B5B852A2B0275F40077302C /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				0B5B852B2B0276030077302C /* add.mp3 */,
+				0B5B852D2B0276090077302C /* remove.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		0BA4125E2AEEB8DC00A4F5A6 = {
+			isa = PBXGroup;
+			children = (
+				0BA412692AEEB8DC00A4F5A6 /* ObjectifyAR */,
+				0BA412682AEEB8DC00A4F5A6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0BA412682AEEB8DC00A4F5A6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0BA412672AEEB8DC00A4F5A6 /* ObjectifyAR.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0BA412692AEEB8DC00A4F5A6 /* ObjectifyAR */ = {
+			isa = PBXGroup;
+			children = (
+				0BA4126A2AEEB8DC00A4F5A6 /* AppDelegate.swift */,
+				0BF827472AFD35C6003351AC /* Views */,
+				0BA4127F2AF13F3500A4F5A6 /* Model.swift */,
+				0BA4127E2AEECCC300A4F5A6 /* Models */,
+				0B5B852A2B0275F40077302C /* Sounds */,
+				0BA4126E2AEEB8DF00A4F5A6 /* Assets.xcassets */,
+				0BA412702AEEB8DF00A4F5A6 /* Preview Content */,
+			);
+			path = ObjectifyAR;
+			sourceTree = "<group>";
+		};
+		0BA412702AEEB8DF00A4F5A6 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				0BA412712AEEB8DF00A4F5A6 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0BA4127E2AEECCC300A4F5A6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0BA412782AEEBD3000A4F5A6 /* jar.usdz */,
+				0BA4127A2AEEBDB500A4F5A6 /* camera.usdz */,
+				0BA412812AF14FFC00A4F5A6 /* toy.usdz */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0BF827472AFD35C6003351AC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0BA4126C2AEEB8DC00A4F5A6 /* ContentView.swift */,
+				0BF827432AFBBD51003351AC /* DetailView.swift */,
+				0BF827482AFD365C003351AC /* CustomARView.swift */,
+				0B5B85362B03BC620077302C /* CustomARViewContainer.swift */,
+				0BF8274A2AFD36F3003351AC /* ModelPickerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0BA412662AEEB8DC00A4F5A6 /* ObjectifyAR */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0BA412752AEEB8DF00A4F5A6 /* Build configuration list for PBXNativeTarget "ObjectifyAR" */;
+			buildPhases = (
+				0BA412632AEEB8DC00A4F5A6 /* Sources */,
+				0BA412642AEEB8DC00A4F5A6 /* Frameworks */,
+				0BA412652AEEB8DC00A4F5A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ObjectifyAR;
+			packageProductDependencies = (
+				0B5B85312B038D6A0077302C /* FocusEntity */,
+				0B5B85342B038F7F0077302C /* FocusEntity */,
+			);
+			productName = ObjectifyAR;
+			productReference = 0BA412672AEEB8DC00A4F5A6 /* ObjectifyAR.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0BA4125F2AEEB8DC00A4F5A6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					0BA412662AEEB8DC00A4F5A6 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 0BA412622AEEB8DC00A4F5A6 /* Build configuration list for PBXProject "ObjectifyAR" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0BA4125E2AEEB8DC00A4F5A6;
+			packageReferences = (
+				0B5B85332B038F7F0077302C /* XCRemoteSwiftPackageReference "FocusEntity" */,
+			);
+			productRefGroup = 0BA412682AEEB8DC00A4F5A6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0BA412662AEEB8DC00A4F5A6 /* ObjectifyAR */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0BA412652AEEB8DC00A4F5A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B5B852E2B0276090077302C /* remove.mp3 in Resources */,
+				0B5B852C2B0276030077302C /* add.mp3 in Resources */,
+				0BA412722AEEB8DF00A4F5A6 /* Preview Assets.xcassets in Resources */,
+				0BA412792AEEBD3000A4F5A6 /* jar.usdz in Resources */,
+				0BA4126F2AEEB8DF00A4F5A6 /* Assets.xcassets in Resources */,
+				0BA4127B2AEEBDB500A4F5A6 /* camera.usdz in Resources */,
+				0BA412822AF14FFC00A4F5A6 /* toy.usdz in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0BA412632AEEB8DC00A4F5A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BF827492AFD365C003351AC /* CustomARView.swift in Sources */,
+				0BA412802AF13F3500A4F5A6 /* Model.swift in Sources */,
+				0BF8274B2AFD36F3003351AC /* ModelPickerView.swift in Sources */,
+				0B5B85372B03BC620077302C /* CustomARViewContainer.swift in Sources */,
+				0BF827442AFBBD51003351AC /* DetailView.swift in Sources */,
+				0BA4126D2AEEB8DC00A4F5A6 /* ContentView.swift in Sources */,
+				0BA4126B2AEEB8DC00A4F5A6 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0BA412732AEEB8DF00A4F5A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0BA412742AEEB8DF00A4F5A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0BA412762AEEB8DF00A4F5A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ObjectifyAR/Preview Content\"";
+				DEVELOPMENT_TEAM = 4DG7W4A27Y;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fasoxy.ObjectifyAR;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0BA412772AEEB8DF00A4F5A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ObjectifyAR/Preview Content\"";
+				DEVELOPMENT_TEAM = 4DG7W4A27Y;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fasoxy.ObjectifyAR;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0BA412622AEEB8DC00A4F5A6 /* Build configuration list for PBXProject "ObjectifyAR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BA412732AEEB8DF00A4F5A6 /* Debug */,
+				0BA412742AEEB8DF00A4F5A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0BA412752AEEB8DF00A4F5A6 /* Build configuration list for PBXNativeTarget "ObjectifyAR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BA412762AEEB8DF00A4F5A6 /* Debug */,
+				0BA412772AEEB8DF00A4F5A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0B5B85332B038F7F0077302C /* XCRemoteSwiftPackageReference "FocusEntity" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maxxfrazer/FocusEntity.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0B5B85312B038D6A0077302C /* FocusEntity */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FocusEntity;
+		};
+		0B5B85342B038F7F0077302C /* FocusEntity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B5B85332B038F7F0077302C /* XCRemoteSwiftPackageReference "FocusEntity" */;
+			productName = FocusEntity;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 0BA4125F2AEEB8DC00A4F5A6 /* Project object */;
+}
