@@ -119,7 +119,7 @@ extension CustomARView {
         
         print("DEBUG: Playing audio")
         
-        if let soundURL = Bundle.main.url(forResource: "sound", withExtension: "mp3") {
+        if let soundURL = Bundle.main.url(forResource: "remove", withExtension: "mp3") {
             
             do {
                 print("DEBUG: Effectively playing audio")
