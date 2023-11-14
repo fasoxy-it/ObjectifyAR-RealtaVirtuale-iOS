@@ -14,9 +14,8 @@ import AVKit
 struct ContentView : View {
     
     @State private var selectedModel: Model?
-    @State private var tappedModel: Model = Model(modelName: "jar")
+    @State private var tappedModel: Model?
     @State private var isDetailViewActive: Bool = false
-    @State private var audioPlayer: AVAudioPlayer!
     
     private var models: [Model] = {
         
@@ -46,7 +45,7 @@ struct ContentView : View {
                     EmptyView()
                 }
                 
-                ARViewContainer(selectedModel: $selectedModel, isDetailViewActive: $isDetailViewActive, tappedModel: $tappedModel, audioPlayer: $audioPlayer)
+                ARViewContainer(selectedModel: $selectedModel, isDetailViewActive: $isDetailViewActive, tappedModel: $tappedModel)
                     .edgesIgnoringSafeArea(.all)
                 
                 ModelPickerView(selectedModel: $selectedModel, models: models)
@@ -62,68 +61,27 @@ struct ARViewContainer: UIViewRepresentable {
     
     @Binding var selectedModel: Model?
     @Binding var isDetailViewActive: Bool
-    @Binding var tappedModel: Model
-    @Binding var audioPlayer: AVAudioPlayer!
+    @Binding var tappedModel: Model?
     
-    func makeUIView(context: Context) -> ARView {
+    func makeUIView(context: Context) -> CustomARView {
         
-        let arView = CustomARView(frame: .zero, isDetailViewActive: $isDetailViewActive, tappedModel: $tappedModel, audioPlayer: $audioPlayer)
-        
-        return arView
+        return CustomARView(isDetailViewActive: $isDetailViewActive, tappedModel: $tappedModel)
         
     }
     
-    func updateUIView(_ uiView: ARView, context: Context) {
+    func updateUIView(_ uiView: CustomARView, context: Context) {
         
         if let model = selectedModel {
+            print("DEBUG: Adding model to scene - \(model.modelName)")
+            uiView.place3DModel(model: model)
             
-            if let modelEntity = model.modelEntity {
-                
-                print("DEBUG: Adding model to scene - \(model.modelName)")
-                
-                let anchorEntity = AnchorEntity(plane: .horizontal) // Also .any
-                anchorEntity.name = model.modelName
-                anchorEntity.addChild(modelEntity)
-                
-                uiView.scene.addAnchor(anchorEntity)
-                
-                modelEntity.generateCollisionShapes(recursive: true)
-                
-                uiView.installGestures([.translation, .rotation, .scale], for: modelEntity)
-                
-                DispatchQueue.main.async {
-                    playAudio()
-                    selectedModel = nil
-                }
-                
-                
-                
-            } else {
-                print("DEBUG: Unable to load modelEntity for - \(model.modelName)")
+            DispatchQueue.main.async {
+                selectedModel = nil
             }
             
-        }
-        
-    }
-    
-    func playAudio() {
-        
-        print("DEBUG: Playing audio")
-        
-        if let soundURL = Bundle.main.url(forResource: "add", withExtension: "mp3") {
-            
-            do {
-                print("DEBUG: Effectively playing audio")
-                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-                audioPlayer!.play()
-            } catch {
-                print("DEBUG: Unable to play audio")
-            }
             
         }
-        
     }
-    
     
 }
 

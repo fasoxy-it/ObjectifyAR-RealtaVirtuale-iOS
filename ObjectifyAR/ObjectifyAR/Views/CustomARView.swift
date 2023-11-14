@@ -13,43 +13,36 @@ import FocusEntity
 class CustomARView: ARView {
     
     @Binding var isDetailViewActive: Bool
-    @Binding var tappedModel: Model
-    @Binding var audioPlayer: AVAudioPlayer!
+    @Binding var tappedModel: Model?
     
+    var focusEntity: FocusEntity?
+    var audioPlayer: AVAudioPlayer?
     
-    //var audioPlayer: AVAudioPlayer = AVAudioPlayer()
-    
-    let focusSquare = FESquare()
-    
-    required init(frame frameRect: CGRect, isDetailViewActive: Binding<Bool>, tappedModel: Binding<Model>, audioPlayer: Binding<AVAudioPlayer?>) {
+    init(isDetailViewActive: Binding<Bool>, tappedModel: Binding<Model?>) {
         
         self._isDetailViewActive = isDetailViewActive
         self._tappedModel = tappedModel
-        self._audioPlayer = audioPlayer
         
+        super.init(frame: .zero)
         
-        
-        super.init(frame: frameRect)
-        
-        focusSquare.viewDelegate = self
-        focusSquare.delegate =  self
-        focusSquare.setAutoUpdate(to: true)
-        
-        self.setupARView()
+        self.setUpFocusEntity()
+        self.setUpARView()
         
     }
     
-    @objc required dynamic init?(coder decoder: NSCoder) {
-        
+    @MainActor required dynamic init?(coder decoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-        
     }
     
-    @MainActor override required dynamic init(frame frameRect: CGRect) {
+    @MainActor required dynamic init(frame frameRect: CGRect) {
         fatalError("init(frame:) has not been implemented")
     }
     
-    func setupARView() {
+    func setUpFocusEntity() {
+        self.focusEntity = FocusEntity(on: self, style: .classic(color: .yellow))
+    }
+    
+    func setUpARView() {
         
         let config = ARWorldTrackingConfiguration()
         config.planeDetection = [.horizontal, .vertical]
@@ -66,12 +59,50 @@ class CustomARView: ARView {
         
     }
     
+    func place3DModel(model: Model) {
+        
+        guard let focusEntity = self.focusEntity else {return}
+        
+        let modelEntity = try! ModelEntity.loadModel(named: model.modelName + ".usdz")
+        let anchorEntity = AnchorEntity(world: focusEntity.position)
+        anchorEntity.name = model.modelName
+        anchorEntity.addChild(modelEntity)
+        self.scene.addAnchor(anchorEntity)
+        
+        modelEntity.generateCollisionShapes(recursive: true)
+        
+        self.installGestures([.all], for: modelEntity)
+        
+        DispatchQueue.main.async {
+            self.playAudio(action: "add")
+        }
+        
+    }
+    
+    func playAudio(action: String) {
+        
+        print("DEBUG: Playing audio")
+        
+        if let soundURL = Bundle.main.url(forResource: action, withExtension: "mp3") {
+            
+            do {
+                print("DEBUG: Effectively playing audio")
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer!.play()
+            } catch {
+                print("DEBUG: Unable to play audio")
+            }
+            
+        }
+        
+    }
+    
 }
 
 extension CustomARView {
     
     func enableObjectRemoval() {
-        
+            
         let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(recognizer:)))
         self.addGestureRecognizer(longPressGestureRecognizer)
         
@@ -84,9 +115,12 @@ extension CustomARView {
         if let entity = self.entity(at: location) {
             
             if let anchorEntity = entity.anchor {
-                anchorEntity.removeFromParent()
-                playAudio()
-                print("DEBUG: Removed anchor with name: \(anchorEntity.name)")
+                DispatchQueue.main.async { [self] in
+                    UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                    anchorEntity.removeFromParent()
+                    playAudio(action: "remove")
+                    print("DEBUG: Removed anchor with name: \(anchorEntity.name)")
+                }
             }
             
         }
@@ -94,55 +128,26 @@ extension CustomARView {
     }
     
     func enableTap() {
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
-        self.addGestureRecognizer(tapGesture)
-    }
-    
-    @objc func handleTap(recognizer: UIGestureRecognizer) {
-        
-        let location = recognizer.location(in: self)
-        
-        if let entity = self.entity(at: location) {
             
-            if let anchorEntity = entity.anchor {
-                print("DEBUG: Tapped anchor with name: \(anchorEntity.name)")
-                isDetailViewActive = true
-                tappedModel = Model(modelName: anchorEntity.name) 
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
+            self.addGestureRecognizer(tapGesture)
+        }
+        
+        @objc func handleTap(recognizer: UIGestureRecognizer) {
+            
+            let location = recognizer.location(in: self)
+            
+            if let entity = self.entity(at: location) {
+                
+                if let anchorEntity = entity.anchor {
+                    
+                    print("DEBUG: Tapped anchor with name: \(anchorEntity.name)")
+                    isDetailViewActive = true
+                    tappedModel = Model(modelName: anchorEntity.name)
+                    
+                }
                 
             }
-            
         }
-    }
-    
-    func playAudio() {
-        
-        print("DEBUG: Playing audio")
-        
-        if let soundURL = Bundle.main.url(forResource: "remove", withExtension: "mp3") {
-            
-            do {
-                print("DEBUG: Effectively playing audio")
-                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-                audioPlayer.play()
-            } catch {
-                print("DEBUG: Unable to play audio")
-            }
-            
-        }
-        
-    }
-    
-}
-
-extension CustomARView: FEDelegate {
-    
-    func toTrackingState() {
-        
-    }
-    
-    func toInitializingState() {
-        
-    }
     
 }
