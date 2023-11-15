@@ -62,6 +62,7 @@ class CustomARView: ARView {
         
         self.enableObjectRemoval()
         self.enableTap()
+        self.enableScale()
         
     }
     
@@ -77,7 +78,7 @@ class CustomARView: ARView {
         
         modelEntity.generateCollisionShapes(recursive: true)
         
-        self.installGestures([.all], for: modelEntity as HasCollision)
+        //self.installGestures([.all], for: modelEntity as HasCollision)
         
         DispatchQueue.main.async {
             UIImpactFeedbackGenerator(style: .medium).impactOccurred()
@@ -107,6 +108,40 @@ class CustomARView: ARView {
 }
 
 extension CustomARView {
+    
+    func enableScale() {
+        
+        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(recognizer:)))
+        self.addGestureRecognizer(pinchGestureRecognizer)
+        
+    }
+    
+    @objc func handlePinch(recognizer: UIPinchGestureRecognizer) {
+        
+        let location = recognizer.location(in: self)
+        
+        if recognizer.state == .changed {
+                
+                if let entity = self.entity(at: location) {
+                    
+                    if let anchorEntity = entity.anchor {
+                        
+                        let pinchScaleX = Float(recognizer.scale) * anchorEntity.scale.x
+                        let pinchScaleY = Float(recognizer.scale) * anchorEntity.scale.y
+                        let pinchScaleZ = Float(recognizer.scale) * anchorEntity.scale.z
+                        
+                        print("DEBUG: \(pinchScaleX), \(pinchScaleY), \(pinchScaleZ)")
+                        
+                        anchorEntity.scale = SIMD3(pinchScaleX, pinchScaleY, pinchScaleZ)
+                        recognizer.scale = 1
+                        
+                    }
+                    
+                }
+                
+        }
+    }
+    
     
     func enableObjectRemoval() {
             
