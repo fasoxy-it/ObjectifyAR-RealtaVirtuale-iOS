@@ -44,15 +44,21 @@ class CustomARView: ARView {
     
     func setUpARView() {
         
-        let config = ARWorldTrackingConfiguration()
-        config.planeDetection = [.horizontal, .vertical]
-        config.environmentTexturing = .automatic
+        let configuration = ARWorldTrackingConfiguration()
+        configuration.planeDetection = [.horizontal]
+        configuration.environmentTexturing = .automatic
         
-        if ARWorldTrackingConfiguration.supportsSceneReconstruction(.mesh) {
-            config.sceneReconstruction = .mesh
+        if ARWorldTrackingConfiguration.supportsFrameSemantics(.personSegmentationWithDepth) {
+            configuration.frameSemantics.insert(.personSegmentationWithDepth)
         }
         
-        self.session.run(config)
+        if ARWorldTrackingConfiguration.supportsSceneReconstruction(.meshWithClassification) {
+            configuration.sceneReconstruction = .meshWithClassification
+        }
+        
+        self.environment.sceneUnderstanding.options.insert(.occlusion)
+        
+        self.session.run(configuration)
         
         self.enableObjectRemoval()
         self.enableTap()
@@ -71,9 +77,10 @@ class CustomARView: ARView {
         
         modelEntity.generateCollisionShapes(recursive: true)
         
-        self.installGestures([.all], for: modelEntity)
+        self.installGestures([.all], for: modelEntity as HasCollision)
         
         DispatchQueue.main.async {
+            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
             self.playAudio(action: "add")
         }
         
@@ -141,9 +148,15 @@ extension CustomARView {
                 
                 if let anchorEntity = entity.anchor {
                     
-                    print("DEBUG: Tapped anchor with name: \(anchorEntity.name)")
-                    isDetailViewActive = true
-                    tappedModel = Model(modelName: anchorEntity.name)
+                    DispatchQueue.main.async { [self] in
+                        
+                        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                        print("DEBUG: Tapped anchor with name: \(anchorEntity.name)")
+                        playAudio(action: "add")
+                        tappedModel = Model(modelName: anchorEntity.name)
+                        isDetailViewActive = true
+                        
+                    }
                     
                 }
                 
