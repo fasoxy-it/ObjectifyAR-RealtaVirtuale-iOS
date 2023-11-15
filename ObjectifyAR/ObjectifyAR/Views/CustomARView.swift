@@ -63,6 +63,8 @@ class CustomARView: ARView {
         self.enableObjectRemoval()
         self.enableTap()
         self.enableScale()
+        self.enableRotation()
+        
         
     }
     
@@ -140,6 +142,38 @@ extension CustomARView {
                 }
                 
         }
+    }
+    
+    func enableRotation() {
+        
+        let rotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(handleRotation(recognizer:)))
+        self.addGestureRecognizer(rotationGestureRecognizer)
+        
+    }
+    
+    @objc func handleRotation(recognizer: UIRotationGestureRecognizer) {
+        
+        let location = recognizer.location(in: self)
+        
+        if recognizer.state == .changed {
+                
+                if let entity = self.entity(at: location) {
+                    
+                    if let anchorEntity = entity.anchor {
+                        
+                        let rotation = Float(recognizer.rotation)
+                        
+                        print("DEBUG: \(rotation)")
+                        
+                        anchorEntity.transform.rotation *= simd_quatf(angle: -rotation, axis: SIMD3(x: 0, y: 1, z: 0))
+                        recognizer.rotation = 0
+                        
+                    }
+                    
+                }
+                
+        }
+    
     }
     
     
