@@ -62,9 +62,6 @@ class CustomARView: ARView {
         
         self.enableObjectRemoval()
         self.enableTap()
-        self.enableScale()
-        self.enableRotation()
-        
         
     }
     
@@ -80,8 +77,10 @@ class CustomARView: ARView {
         
         modelEntity.generateCollisionShapes(recursive: true)
         
-        //self.installGestures([.all], for: modelEntity as HasCollision)
-        
+        self.installGestures([.all], for: modelEntity as Entity & HasCollision).forEach { entityGesture in
+            entityGesture.addTarget(self, action: #selector(handleEntityGesture(_:)))
+        }
+         
         DispatchQueue.main.async {
             UIImpactFeedbackGenerator(style: .medium).impactOccurred()
             self.playAudio(action: "add")
@@ -111,72 +110,32 @@ class CustomARView: ARView {
 
 extension CustomARView {
     
-    func enableScale() {
+    @objc func handleEntityGesture(_ sender: UIGestureRecognizer) {
         
-        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(recognizer:)))
-        self.addGestureRecognizer(pinchGestureRecognizer)
-        
-    }
-    
-    @objc func handlePinch(recognizer: UIPinchGestureRecognizer) {
-        
-        let location = recognizer.location(in: self)
-        
-        if recognizer.state == .changed {
+        if let scaleGesture = sender as? EntityScaleGestureRecognizer {
                 
-                if let entity = self.entity(at: location) {
+                switch scaleGesture.state {
+                
+                case .began:
+                    print("DEBUG: Scale gesture began")
                     
-                    if let anchorEntity = entity.anchor {
-                        
-                        let pinchScaleX = Float(recognizer.scale) * anchorEntity.scale.x
-                        let pinchScaleY = Float(recognizer.scale) * anchorEntity.scale.y
-                        let pinchScaleZ = Float(recognizer.scale) * anchorEntity.scale.z
-                        
-                        print("DEBUG: \(pinchScaleX), \(pinchScaleY), \(pinchScaleZ)")
-                        
-                        anchorEntity.scale = SIMD3(pinchScaleX, pinchScaleY, pinchScaleZ)
-                        recognizer.scale = 1
-                        
-                    }
+                case .changed:
+                    print("DEBUG: Scale gesture changed")
+                    print("DEBUG: \(Int(((scaleGesture.entity?.transform.scale.x)! * 100).rounded()))")
+                    
+                    
+                case .ended:
+                    print("DEBUG: Scale gesture ended")
+                    
+                default:
+                    break
                     
                 }
                 
         }
-    }
-    
-    func enableRotation() {
-        
-        let rotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(handleRotation(recognizer:)))
-        self.addGestureRecognizer(rotationGestureRecognizer)
         
     }
-    
-    @objc func handleRotation(recognizer: UIRotationGestureRecognizer) {
-        
-        let location = recognizer.location(in: self)
-        
-        if recognizer.state == .changed {
-                
-                if let entity = self.entity(at: location) {
-                    
-                    if let anchorEntity = entity.anchor {
-                        
-                        let rotation = Float(recognizer.rotation)
-                        
-                        print("DEBUG: \(rotation)")
-                        
-                        anchorEntity.transform.rotation *= simd_quatf(angle: -rotation, axis: SIMD3(x: 0, y: 1, z: 0))
-                        recognizer.rotation = 0
-                        
-                    }
-                    
-                }
-                
-        }
-    
-    }
-    
-    
+
     func enableObjectRemoval() {
             
         let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(recognizer:)))
