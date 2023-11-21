@@ -33,4 +33,11 @@ class Model {
             })
         
     }
+    
+}
+
+struct Models {
+    
+    var models: [Model] = []
+    
 }

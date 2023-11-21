@@ -57,11 +57,10 @@ class CustomARView: ARView {
         }
         
         self.environment.sceneUnderstanding.options.insert(.occlusion)
+        self.environment.sceneUnderstanding.options.insert(.receivesLighting)
+        self.environment.sceneUnderstanding.options.insert(.collision)
         
         self.session.run(configuration)
-        
-        self.enableObjectRemoval()
-        self.enableTap()
         
     }
     
@@ -70,16 +69,24 @@ class CustomARView: ARView {
         guard let focusEntity = self.focusEntity else {return}
         
         let modelEntity = try! ModelEntity.loadModel(named: model.modelName + ".usdz")
+        //modelEntity.generateCollisionShapes(recursive: true)
+        modelEntity.scale = [1.0, 1.0, 1.0]
+        
+        
+        
         let anchorEntity = AnchorEntity(world: focusEntity.position)
         anchorEntity.name = model.modelName
+        //anchorEntity.scale = [1.0, 1.0, 1.0]
         anchorEntity.addChild(modelEntity)
+        anchorEntity.generateCollisionShapes(recursive: true)
         self.scene.addAnchor(anchorEntity)
         
-        modelEntity.generateCollisionShapes(recursive: true)
-        
-        self.installGestures([.all], for: modelEntity as Entity & HasCollision).forEach { entityGesture in
+        self.installGestures([.all], for: modelEntity as Entity & HasCollision & HasTransform).forEach { entityGesture in
             entityGesture.addTarget(self, action: #selector(handleEntityGesture(_:)))
         }
+        
+        self.enableObjectRemoval()
+        self.enableTap()
          
         DispatchQueue.main.async {
             UIImpactFeedbackGenerator(style: .medium).impactOccurred()
@@ -110,6 +117,21 @@ class CustomARView: ARView {
 
 extension CustomARView {
     
+    func compareSIMD3(entityScale: SIMD3<Float>) -> Bool {
+        
+        let min = SIMD3<Float>(0.9, 0.9, 0.9)
+        let max = SIMD3<Float>(1.1, 1.1, 1.1)
+        
+        if entityScale.x >= min.x && entityScale.y >= min.y && entityScale.z >= min.z && entityScale.x <= max.x && entityScale.y <= max.y && entityScale.z <= max.z {
+            print("DEBUG: Equal")
+            return true
+        } else {
+            print("DEBUG: Not equal")
+            return false
+        }
+        
+    }
+    
     @objc func handleEntityGesture(_ sender: UIGestureRecognizer) {
         
         if let scaleGesture = sender as? EntityScaleGestureRecognizer {
@@ -122,10 +144,79 @@ extension CustomARView {
                 case .changed:
                     print("DEBUG: Scale gesture changed")
                     print("DEBUG: \(Int(((scaleGesture.entity?.transform.scale.x)! * 100).rounded()))")
+                    print("DEBUG: Cazzo \(scaleGesture.scale)")
                     
+                    
+                    let location = sender.location(in: self)
+                    
+                    if let entity = self.entity(at: location) {
+                        
+                        print("DEBUG: Entity Scale Gesture = \(Int(((scaleGesture.entity?.transform.scale.x)! * 100).rounded()))")
+                        
+                        if compareSIMD3(entityScale: scaleGesture.entity!.transform.scale) == true {
+                            
+                            
+                            if Int((entity.scale.x * 100).rounded()) == 101 {
+                                print("DEBUG: Prova \(entity.scale)")
+                                entity.scale = [1.1, 1.1, 1.1]
+                            } else if Int((entity.scale.x * 100).rounded()) == 99 {
+                                print("DEBUG: Prova \(entity.scale)")
+                                entity.scale = [0.9, 0.9, 0.9]
+                            } else if Int((entity.scale.x * 100).rounded()) == 110 {
+                                entity.scale = [1.0, 1.0, 1.0]
+                                print("DEBUG: Prova \(entity.scale)")
+                                UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                            } else if Int((entity.scale.x * 100).rounded()) == 90 {
+                                entity.scale = [1.0, 1.0, 1.0]
+                                print("DEBUG: Prova \(entity.scale)")
+                                UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                            }
+                            
+                            print("DEBUG: Entity Scale = \(Int((entity.scale.x * 100).rounded()))")
+                            //UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                            //entity.scale = [1.0, 1.0, 1.0]
+                        }
+                        
+                    }
                     
                 case .ended:
                     print("DEBUG: Scale gesture ended")
+                    
+                default:
+                    break
+                    
+                }
+                
+        }
+        
+        if let translationGesture = sender as? EntityTranslationGestureRecognizer {
+                
+                switch translationGesture.state {
+                
+                case .began:
+                    print("DEBUG: Translation gesture began")
+                    
+                case .changed:
+                    print("DEBUG: Translation gesture changed")
+                    let currentPos = translationGesture.entity?.transform.translation
+                    print("DEBUG: \(currentPos)")
+                    
+                    let location = sender.location(in: self)
+                    
+                    if let entity = self.entity(at: location) {
+                        
+                        if let anchorEntity = entity.anchor {
+                            DispatchQueue.main.async { [self] in
+                                //UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                                print("DEBUG: Something anchor with name: \(anchorEntity.name)")
+                                print("DEBUG: Something anchor with name: \(anchorEntity.scale)")
+                            }
+                        }
+                        
+                    }
+                    
+                case .ended:
+                    print("DEBUG: Translation gesture ended")
                     
                 default:
                     break
@@ -168,27 +259,27 @@ extension CustomARView {
             self.addGestureRecognizer(tapGesture)
         }
         
-        @objc func handleTap(recognizer: UIGestureRecognizer) {
+    @objc func handleTap(recognizer: UIGestureRecognizer) {
+        
+        let location = recognizer.location(in: self)
+        
+        if let entity = self.entity(at: location) {
             
-            let location = recognizer.location(in: self)
-            
-            if let entity = self.entity(at: location) {
+            if let anchorEntity = entity.anchor {
                 
-                if let anchorEntity = entity.anchor {
+                DispatchQueue.main.async { [self] in
                     
-                    DispatchQueue.main.async { [self] in
-                        
-                        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
-                        print("DEBUG: Tapped anchor with name: \(anchorEntity.name)")
-                        playAudio(action: "add")
-                        tappedModel = Model(modelName: anchorEntity.name)
-                        isDetailViewActive = true
-                        
-                    }
+                    UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                    print("DEBUG: Tapped anchor with name: \(anchorEntity.name)")
+                    playAudio(action: "add")
+                    tappedModel = Model(modelName: anchorEntity.name)
+                    isDetailViewActive = true
                     
                 }
                 
             }
+            
         }
+    }
     
 }
