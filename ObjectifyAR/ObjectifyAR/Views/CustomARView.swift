@@ -64,18 +64,18 @@ class CustomARView: ARView {
         
     }
     
-    func place3DModel(model: Model) {
+    func place3DModel(model: Modello) {
         
         guard let focusEntity = self.focusEntity else {return}
         
-        let modelEntity = try! ModelEntity.loadModel(named: model.modelName + ".usdz")
+        let modelEntity = model.modelEntity
         //modelEntity.generateCollisionShapes(recursive: true)
         modelEntity.scale = [1.0, 1.0, 1.0]
         
         
         
         let anchorEntity = AnchorEntity(world: focusEntity.position)
-        anchorEntity.name = model.modelName
+        anchorEntity.name = model.name
         //anchorEntity.scale = [1.0, 1.0, 1.0]
         anchorEntity.addChild(modelEntity)
         anchorEntity.generateCollisionShapes(recursive: true)

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CustomARViewContainer: UIViewRepresentable {
     
-    @Binding var selectedModel: Model?
+    @Binding var selectedModel: Modello?
     @Binding var isDetailViewActive: Bool
     @Binding var tappedModel: Model?
     
@@ -22,7 +22,7 @@ struct CustomARViewContainer: UIViewRepresentable {
     func updateUIView(_ uiView: CustomARView, context: Context) {
         
         if let model = selectedModel {
-            print("DEBUG: Adding model to scene - \(model.modelName)")
+            print("DEBUG: Adding model to scene - \(model.name)")
             uiView.place3DModel(model: model)
             
             DispatchQueue.main.async {

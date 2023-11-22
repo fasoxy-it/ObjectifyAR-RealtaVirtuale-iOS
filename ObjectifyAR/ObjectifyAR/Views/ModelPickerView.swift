@@ -13,21 +13,29 @@ import FocusEntity
 struct ModelPickerView: View {
     
     @State var isImporting: Bool = false
-    @Binding var selectedModel: Model?
-    @State var modelE: ModelEntity?
+    @Binding var selectedModel: Modello?
+    //@State var modelE: ModelEntity?
     
-    var models: [Model]
+    var thumbnail: Image?
+    
+    @ObservedObject var thumbnailGenerator = ThumbnailGenerator()
+    
+    //var modello: Modello = Modello()
+    var modelli: Modelli
+    
+    //var models: [Model]
     
     var body: some View {
         
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 30) {
-                ForEach(0 ..< models.count) { index in
+                ForEach(modelli.modelli) { modello in
                     Button(action: {
-                        print("DEBUG: Selected model with name: \(models[index].modelName)")
-                        selectedModel = models[index]
+                        print("DEBUG: Selected model with name: \(modello.name)")
+                        selectedModel = modello
                     }) {
-                        ModelPicker(model: models[index])
+                        Text(modello.name)
+                        //ModelPicker(model: models[index])
                         
                     }
                         .buttonStyle(PlainButtonStyle())
@@ -41,8 +49,9 @@ struct ModelPickerView: View {
                         print("DEBUG: File URL: \(fileUrl)")
                         
                         guard fileUrl.startAccessingSecurityScopedResource() else { return }
-                        $modelE.wrappedValue = try ModelEntity.loadModel(contentsOf: fileUrl)
-                        print("DEBUG: ModelEntity: \(String(describing: modelE))")
+                        
+                        modelli.modelli.append(Modello(name: fileUrl.lastPathComponent.replacingOccurrences(of: ".usdz", with: ""), /*image: thumbnail!,*/ modelEntity: try ModelEntity.loadModel(contentsOf: fileUrl)))
+                        
                         fileUrl.stopAccessingSecurityScopedResource()
                         
                         isImporting = false
@@ -58,8 +67,10 @@ struct ModelPickerView: View {
         
     }
     
+    
+    
 }
 
-#Preview {
-    ModelPickerView(selectedModel: .constant(Model(modelName: "jar")), models: [Model(modelName: "jar")])
-}
+
+
+

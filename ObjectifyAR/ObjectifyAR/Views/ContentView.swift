@@ -13,11 +13,13 @@ import AVKit
 
 struct ContentView : View {
     
-    @State private var selectedModel: Model?
+    @State private var selectedModel: Modello?
     @State private var tappedModel: Model?
     @State private var isDetailViewActive: Bool = false
     
-    private var models: [Model] = {
+    var modelli: Modelli = Modelli()
+    
+    /*private var models: [Model] = {
         
         let filemanager = FileManager.default
         
@@ -39,7 +41,7 @@ struct ContentView : View {
         
         return availableModels
         
-    }()
+    }()*/
     
     var body: some View {
         
@@ -54,7 +56,7 @@ struct ContentView : View {
                 CustomARViewContainer(selectedModel: $selectedModel, isDetailViewActive: $isDetailViewActive, tappedModel: $tappedModel)
                     .edgesIgnoringSafeArea(.all)
                 
-                ModelPickerView(selectedModel: $selectedModel, models: models)
+                ModelPickerView(selectedModel: $selectedModel, modelli: modelli)
                 
             }
             

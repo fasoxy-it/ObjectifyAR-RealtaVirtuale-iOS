@@ -8,6 +8,7 @@
 import UIKit
 import RealityKit
 import Combine
+import SwiftUI
 
 class Model {
     
@@ -35,11 +36,30 @@ class Model {
                 // Get our modelEntity
                 self.modelEntity = modelEntity
                 print("DEBUG: Successfully loaded modelEntity for modelName: \(self.modelName)")
-                print("MODEL: \(String(describing: self.modelEntity))")
             })
         
     }
     
+}
+
+class Modello: Identifiable {
+    
+    var id: UUID = UUID()
+    var name: String
+    //var image: Image
+    var modelEntity: ModelEntity
+    
+    init(name: String, /*image: Image,*/ modelEntity: ModelEntity) {
+        self.name = name
+        //self.image = image
+        self.modelEntity = modelEntity
+    }
+    
+}
+
+class Modelli {
+    
+    var modelli: [Modello] = []
 }
 
 class Models {
