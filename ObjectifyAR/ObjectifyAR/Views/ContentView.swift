@@ -14,34 +14,10 @@ import AVKit
 struct ContentView : View {
     
     @State private var selectedModel: Modello?
-    @State private var tappedModel: Model?
+    @State private var tappedModel: String?
     @State private var isDetailViewActive: Bool = false
     
     var modelli: Modelli = Modelli()
-    
-    /*private var models: [Model] = {
-        
-        let filemanager = FileManager.default
-        
-        guard let path = Bundle.main.resourcePath, let files = try? filemanager.contentsOfDirectory(atPath: path) else {return []}
-    
-        var availableModels: [Model] = []
-        
-        for filename in files where filename.hasSuffix("usdz") {
-            let  modelName = filename.replacingOccurrences(of: ".usdz", with: "")
-            let model = Model(modelName: modelName)
-            availableModels.append(model)
-            print("MODELS: \(String(describing: availableModels[0].modelEntity))")
-        }
-        
-        print("MODELS: \(availableModels)")
-        print("MODELS: \(String(describing: availableModels[0].modelEntity))")
-        print("MODELS: \(availableModels[1])")
-        print("MODELS: \(availableModels[2])")
-        
-        return availableModels
-        
-    }()*/
     
     var body: some View {
         
@@ -56,7 +32,7 @@ struct ContentView : View {
                 CustomARViewContainer(selectedModel: $selectedModel, isDetailViewActive: $isDetailViewActive, tappedModel: $tappedModel)
                     .edgesIgnoringSafeArea(.all)
                 
-                ModelPickerView(selectedModel: $selectedModel, modelli: modelli)
+                ModelPickerView(modelli: modelli, selectedModel: $selectedModel)
                 
             }
             

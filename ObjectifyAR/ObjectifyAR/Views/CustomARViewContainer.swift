@@ -11,7 +11,7 @@ struct CustomARViewContainer: UIViewRepresentable {
     
     @Binding var selectedModel: Modello?
     @Binding var isDetailViewActive: Bool
-    @Binding var tappedModel: Model?
+    @Binding var tappedModel: String?
     
     func makeUIView(context: Context) -> CustomARView {
         

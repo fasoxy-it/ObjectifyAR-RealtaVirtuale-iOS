@@ -13,12 +13,12 @@ import FocusEntity
 class CustomARView: ARView {
     
     @Binding var isDetailViewActive: Bool
-    @Binding var tappedModel: Model?
+    @Binding var tappedModel: String?
     
     var focusEntity: FocusEntity?
     var audioPlayer: AVAudioPlayer?
     
-    init(isDetailViewActive: Binding<Bool>, tappedModel: Binding<Model?>) {
+    init(isDetailViewActive: Binding<Bool>, tappedModel: Binding<String?>) {
         
         self._isDetailViewActive = isDetailViewActive
         self._tappedModel = tappedModel
@@ -272,7 +272,7 @@ extension CustomARView {
                     UIImpactFeedbackGenerator(style: .medium).impactOccurred()
                     print("DEBUG: Tapped anchor with name: \(anchorEntity.name)")
                     playAudio(action: "add")
-                    tappedModel = Model(modelName: anchorEntity.name)
+                    tappedModel = anchorEntity.name
                     isDetailViewActive = true
                     
                 }

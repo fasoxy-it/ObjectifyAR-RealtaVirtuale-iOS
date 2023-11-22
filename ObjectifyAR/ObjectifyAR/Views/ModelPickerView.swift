@@ -12,18 +12,15 @@ import FocusEntity
 
 struct ModelPickerView: View {
     
+    var modelli: Modelli
+    
     @State var isImporting: Bool = false
+    
     @Binding var selectedModel: Modello?
-    //@State var modelE: ModelEntity?
     
     var thumbnail: Image?
     
     @ObservedObject var thumbnailGenerator = ThumbnailGenerator()
-    
-    //var modello: Modello = Modello()
-    var modelli: Modelli
-    
-    //var models: [Model]
     
     var body: some View {
         
@@ -34,8 +31,7 @@ struct ModelPickerView: View {
                         print("DEBUG: Selected model with name: \(modello.name)")
                         selectedModel = modello
                     }) {
-                        Text(modello.name)
-                        //ModelPicker(model: models[index])
+                        ModelPicker(model: modello)
                         
                     }
                         .buttonStyle(PlainButtonStyle())
