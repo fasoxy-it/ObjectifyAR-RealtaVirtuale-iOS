@@ -29,7 +29,13 @@ struct ContentView : View {
             let  modelName = filename.replacingOccurrences(of: ".usdz", with: "")
             let model = Model(modelName: modelName)
             availableModels.append(model)
+            print("MODELS: \(String(describing: availableModels[0].modelEntity))")
         }
+        
+        print("MODELS: \(availableModels)")
+        print("MODELS: \(String(describing: availableModels[0].modelEntity))")
+        print("MODELS: \(availableModels[1])")
+        print("MODELS: \(availableModels[2])")
         
         return availableModels
         
@@ -47,22 +53,6 @@ struct ContentView : View {
                 
                 CustomARViewContainer(selectedModel: $selectedModel, isDetailViewActive: $isDetailViewActive, tappedModel: $tappedModel)
                     .edgesIgnoringSafeArea(.all)
-                    .gesture(TapGesture().onEnded {
-                        // Handle tap gesture here
-                        print("DEBUG: Tap gesture detected")
-                    })
-                    .gesture(DragGesture().onChanged { value in
-                        // Handle drag gesture here
-                        print("DEBUG: Drag gesture detected: \(value.translation)")
-                    })
-                    .gesture(MagnificationGesture().onChanged { value in
-                        // Handle pinch gesture here
-                        print("DEBUG: Pinch gesture detected: \(value.magnitude)")
-                    })
-                    .gesture(RotationGesture().onChanged { value in
-                        // Handle rotation gesture here
-                        print("DEBUG: Rotation gesture detected: \(value.degrees)")
-                    })
                 
                 ModelPickerView(selectedModel: $selectedModel, models: models)
                 

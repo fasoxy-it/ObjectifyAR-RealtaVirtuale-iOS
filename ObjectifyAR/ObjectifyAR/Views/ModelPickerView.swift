@@ -12,7 +12,9 @@ import FocusEntity
 
 struct ModelPickerView: View {
     
+    @State var isImporting: Bool = false
     @Binding var selectedModel: Model?
+    @State var modelE: ModelEntity?
     
     var models: [Model]
     
@@ -25,18 +27,29 @@ struct ModelPickerView: View {
                         print("DEBUG: Selected model with name: \(models[index].modelName)")
                         selectedModel = models[index]
                     }) {
-                        VStack {
-                            Image(uiImage: models[index].image)
-                                .resizable()
-                                .frame(width: 80, height: 80)
-                                .aspectRatio(1/1, contentMode: .fit)
-                                .background(Color.white)
-                                .cornerRadius(12)
-                            Text(models[index].modelName)
-                        }
+                        ModelPicker(model: models[index])
                         
                     }
                         .buttonStyle(PlainButtonStyle())
+                }
+                Button("Add") {
+                    print("DEBUG: Add button pressed")
+                    isImporting = true
+                }.fileImporter(isPresented: $isImporting, allowedContentTypes: [.usdz]) { result in
+                    do {
+                        let fileUrl = try result.get()
+                        print("DEBUG: File URL: \(fileUrl)")
+                        
+                        guard fileUrl.startAccessingSecurityScopedResource() else { return }
+                        $modelE.wrappedValue = try ModelEntity.loadModel(contentsOf: fileUrl)
+                        print("DEBUG: ModelEntity: \(String(describing: modelE))")
+                        fileUrl.stopAccessingSecurityScopedResource()
+                        
+                        isImporting = false
+                    
+                    } catch {
+                        print("DEBUG: Error getting file URL: \(error.localizedDescription)")
+                    }
                 }
             }
         }
