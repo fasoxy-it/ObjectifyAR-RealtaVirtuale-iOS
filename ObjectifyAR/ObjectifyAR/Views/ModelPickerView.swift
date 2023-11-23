@@ -31,6 +31,7 @@ struct ModelPickerView: View {
                         print("DEBUG: Selected model with name: \(modello.name)")
                         selectedModel = modello
                     }) {
+                        
                         ModelPicker(model: modello)
                         
                     }

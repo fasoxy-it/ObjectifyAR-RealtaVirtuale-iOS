@@ -28,4 +28,5 @@ class Modello: Identifiable {
 class Modelli {
     
     var modelli: [Modello] = []
+    
 }

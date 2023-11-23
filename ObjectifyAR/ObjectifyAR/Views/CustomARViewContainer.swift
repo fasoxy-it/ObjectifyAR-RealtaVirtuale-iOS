@@ -29,8 +29,8 @@ struct CustomARViewContainer: UIViewRepresentable {
                 selectedModel = nil
             }
             
-            
         }
+        
     }
     
 }
