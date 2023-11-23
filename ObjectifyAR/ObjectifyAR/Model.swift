@@ -17,10 +17,15 @@ class Modello: Identifiable {
     //var image: Image
     var modelEntity: ModelEntity
     
-    init(name: String, /*image: Image,*/ modelEntity: ModelEntity) {
-        self.name = name
+    init(url: URL) {
+        self.name = url.lastPathComponent.replacingOccurrences(of: ".usdz", with: "")
         //self.image = image
-        self.modelEntity = modelEntity
+        do {
+            self.modelEntity = try ModelEntity.loadModel(contentsOf: url)
+        } catch {
+            fatalError("DEBUG: Unable to load model from URL \(url)")
+        }
+        
     }
     
 }

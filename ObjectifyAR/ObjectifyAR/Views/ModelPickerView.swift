@@ -20,8 +20,6 @@ struct ModelPickerView: View {
     
     var thumbnail: Image?
     
-    @ObservedObject var thumbnailGenerator = ThumbnailGenerator()
-    
     var body: some View {
         
         ScrollView(.horizontal, showsIndicators: false) {
@@ -47,7 +45,9 @@ struct ModelPickerView: View {
                         
                         guard fileUrl.startAccessingSecurityScopedResource() else { return }
                         
-                        modelli.modelli.append(Modello(name: fileUrl.lastPathComponent.replacingOccurrences(of: ".usdz", with: ""), /*image: thumbnail!,*/ modelEntity: try ModelEntity.loadModel(contentsOf: fileUrl)))
+                        modelli.modelli.append(Modello(url: fileUrl))
+                        
+                        print("DEBUG: Added model with name: \(modelli.modelli.last!.name)")
                         
                         fileUrl.stopAccessingSecurityScopedResource()
                         
