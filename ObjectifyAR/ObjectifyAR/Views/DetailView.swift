@@ -14,8 +14,25 @@ struct DetailView: View {
     
     var body: some View {
         
-        VStack {
-            Text(model!)
+        ScrollView {
+            VStack {
+                Image(systemName: "photo")
+                    .resizable()
+                    .frame(width: 200, height: 200)
+                    .cornerRadius(15)
+                    .shadow(radius: 10)
+                    .padding(.bottom, 20)
+                ZStack {
+                    RoundedRectangle(cornerRadius: 15)
+                        .foregroundColor(.white)
+                    VStack {
+                        Text(model!)
+                        
+                    }
+                    
+                }
+                
+            }
         }
         
     }

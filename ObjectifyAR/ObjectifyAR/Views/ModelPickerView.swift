@@ -18,8 +18,6 @@ struct ModelPickerView: View {
     
     @Binding var selectedModel: Modello?
     
-    var thumbnail: Image?
-    
     var body: some View {
         
         ScrollView(.horizontal, showsIndicators: false) {
@@ -48,6 +46,8 @@ struct ModelPickerView: View {
                         modelli.modelli.append(Modello(url: fileUrl))
                         
                         print("DEBUG: Added model with name: \(modelli.modelli.last!.name)")
+                        print("DEBUG: Added model with name: \(modelli.modelli.last!.image)")
+                        print("DEBUG: Added model with name: \(modelli.modelli.last!.modelEntity)")
                         
                         fileUrl.stopAccessingSecurityScopedResource()
                         
