@@ -53,6 +53,10 @@ class Modelli {
     
     var modelli: [Modello] = []
     
+    func findModello(name: String) -> Modello? {
+        return modelli.first { $0.name == name }
+    }
+    
 }
 
 extension UIImage {

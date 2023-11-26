@@ -33,34 +33,39 @@ struct ModelPickerView: View {
                     }
                         .buttonStyle(PlainButtonStyle())
                 }
-                Button("Add") {
-                    print("DEBUG: Add button pressed")
-                    isImporting = true
-                }.fileImporter(isPresented: $isImporting, allowedContentTypes: [.usdz]) { result in
-                    do {
-                        let fileUrl = try result.get()
-                        print("DEBUG: File URL: \(fileUrl)")
-                        
-                        guard fileUrl.startAccessingSecurityScopedResource() else { return }
-                        
-                        modelli.modelli.append(Modello(url: fileUrl))
-                        
-                        print("DEBUG: Added model with name: \(modelli.modelli.last!.name)")
-                        print("DEBUG: Added model with name: \(modelli.modelli.last!.image)")
-                        print("DEBUG: Added model with name: \(modelli.modelli.last!.modelEntity)")
-                        
-                        fileUrl.stopAccessingSecurityScopedResource()
-                        
-                        isImporting = false
-                    
-                    } catch {
-                        print("DEBUG: Error getting file URL: \(error.localizedDescription)")
+                Image(systemName: "plus.square.fill")
+                    .font(.system(size: 50))
+                    .foregroundColor(.blue)
+                    .onTapGesture {
+                        print("DEBUG: Add button pressed")
+                        isImporting = true
                     }
-                }
+                    .fileImporter(isPresented: $isImporting, allowedContentTypes: [.usdz]) { result in
+                        do {
+                            let fileUrl = try result.get()
+                            print("DEBUG: File URL: \(fileUrl)")
+                            
+                            guard fileUrl.startAccessingSecurityScopedResource() else { return }
+                            
+                            modelli.modelli.append(Modello(url: fileUrl))
+                            
+                            print("DEBUG: Added model with name: \(modelli.modelli.last!.name)")
+                            print("DEBUG: Added model with name: \(modelli.modelli.last!.image)")
+                            print("DEBUG: Added model with name: \(modelli.modelli.last!.modelEntity)")
+                            
+                            fileUrl.stopAccessingSecurityScopedResource()
+                            
+                            isImporting = false
+                        
+                        } catch {
+                            print("DEBUG: Error getting file URL: \(error.localizedDescription)")
+                        }
+                    }
+                
             }
         }
-        .padding(20)
-        .background(Color.black.opacity(0.5))
+        .padding()
+        .background(LinearGradient(colors: [Color(red: 0.109803921568627, green: 0.109803921568627, blue: 0.117647058823529).opacity(0.0), Color(red: 0.109803921568627, green: 0.109803921568627, blue: 0.117647058823529).opacity(0.5)], startPoint: .top, endPoint: .bottom))
         
     }
     
