@@ -49,9 +49,9 @@ class Modello: Identifiable {
     
 }
 
-class Modelli {
+class Modelli: ObservableObject {
     
-    var modelli: [Modello] = []
+    @Published var modelli: [Modello] = []
     
     func findModello(name: String) -> Modello? {
         return modelli.first { $0.name == name }

@@ -19,7 +19,7 @@ struct ContentView : View {
     
     @State var isImporting: Bool = false
     
-    var modelli: Modelli = Modelli()
+    @StateObject var modelli: Modelli = Modelli()
     
     var body: some View {
         
@@ -76,7 +76,9 @@ struct ContentView : View {
                     
                     Spacer()
                     
-                    ModelPickerView(modelli: modelli, selectedModel: $selectedModel)
+                    ModelPickerView(selectedModel: $selectedModel)
+                        .environmentObject(modelli)
+                        
                     
                 }
                 

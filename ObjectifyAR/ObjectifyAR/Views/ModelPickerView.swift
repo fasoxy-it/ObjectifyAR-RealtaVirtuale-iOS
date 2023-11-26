@@ -12,7 +12,7 @@ import FocusEntity
 
 struct ModelPickerView: View {
     
-    var modelli: Modelli
+    @EnvironmentObject var modelli: Modelli
     
     @State var isImporting: Bool = false
     
@@ -33,34 +33,6 @@ struct ModelPickerView: View {
                     }
                         .buttonStyle(PlainButtonStyle())
                 }
-                Image(systemName: "plus.square.fill")
-                    .font(.system(size: 50))
-                    .foregroundColor(.blue)
-                    .onTapGesture {
-                        print("DEBUG: Add button pressed")
-                        isImporting = true
-                    }
-                    .fileImporter(isPresented: $isImporting, allowedContentTypes: [.usdz]) { result in
-                        do {
-                            let fileUrl = try result.get()
-                            print("DEBUG: File URL: \(fileUrl)")
-                            
-                            guard fileUrl.startAccessingSecurityScopedResource() else { return }
-                            
-                            modelli.modelli.append(Modello(url: fileUrl))
-                            
-                            print("DEBUG: Added model with name: \(modelli.modelli.last!.name)")
-                            print("DEBUG: Added model with name: \(modelli.modelli.last!.image)")
-                            print("DEBUG: Added model with name: \(modelli.modelli.last!.modelEntity)")
-                            
-                            fileUrl.stopAccessingSecurityScopedResource()
-                            
-                            isImporting = false
-                        
-                        } catch {
-                            print("DEBUG: Error getting file URL: \(error.localizedDescription)")
-                        }
-                    }
                 
             }
         }
