@@ -12,9 +12,7 @@ import FocusEntity
 
 struct ModelPickerView: View {
     
-    @EnvironmentObject var modelli: Modelli
-    
-    @State var isImporting: Bool = false
+    @EnvironmentObject var modelli: Modelli // Altrimenti lo trasformo i un @ObservedObject ed elimino .environmentObject(modelli) dalla ContentView
     
     @Binding var selectedModel: Modello?
     
@@ -31,7 +29,7 @@ struct ModelPickerView: View {
                         ModelPicker(model: modello)
                         
                     }
-                        .buttonStyle(PlainButtonStyle())
+                    .buttonStyle(PlainButtonStyle())
                 }
                 
             }

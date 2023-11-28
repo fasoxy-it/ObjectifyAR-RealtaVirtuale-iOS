@@ -13,13 +13,12 @@ import AVKit
 
 struct ContentView : View {
     
+    @StateObject var modelli: Modelli = Modelli()
+    
     @State private var selectedModel: Modello?
     @State private var tappedModel: String?
     @State private var isDetailViewActive: Bool = false
-    
-    @State var isImporting: Bool = false
-    
-    @StateObject var modelli: Modelli = Modelli()
+    @State private var isImporting: Bool = false
     
     var body: some View {
         
@@ -27,7 +26,7 @@ struct ContentView : View {
             
             ZStack(alignment: .bottom) {
                 
-                NavigationLink(destination: DetailView(model: $tappedModel.wrappedValue, modelli: modelli), isActive: $isDetailViewActive) {
+                NavigationLink(destination: DetailView(model: $tappedModel), isActive: $isDetailViewActive) {
                     EmptyView()
                 }
                 
@@ -72,19 +71,16 @@ struct ContentView : View {
                             .padding(.top, 10)
                            
                     }
-                        
                     
                     Spacer()
                     
                     ModelPickerView(selectedModel: $selectedModel)
-                        .environmentObject(modelli)
                         
-                    
                 }
                 
             }
             
-        }
+        }.environmentObject(modelli)
         
     }
     

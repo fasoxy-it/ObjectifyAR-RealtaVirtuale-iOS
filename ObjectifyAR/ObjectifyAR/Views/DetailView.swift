@@ -12,11 +12,9 @@ struct DetailView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    var model: String?
+    @EnvironmentObject var modelli: Modelli
     
-    var m: Modello?
-    
-    var modelli: Modelli
+    @Binding var model: String?
     
     let ragno = Color(red: 0.109803921568627, green: 0.109803921568627, blue: 0.117647058823529)
     let serpente = Color(red: 0.356862745098039, green: 0.356862745098039, blue: 0.356862745098039)

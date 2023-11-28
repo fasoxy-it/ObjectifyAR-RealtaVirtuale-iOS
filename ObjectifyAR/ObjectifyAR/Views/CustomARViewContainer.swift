@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CustomARViewContainer: UIViewRepresentable {
     
+    @EnvironmentObject var modelli: Modelli
+    
     @Binding var selectedModel: Modello?
     @Binding var isDetailViewActive: Bool
     @Binding var tappedModel: String?
