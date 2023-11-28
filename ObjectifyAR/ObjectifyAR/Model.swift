@@ -10,24 +10,38 @@ import RealityKit
 import Combine
 import QuickLookThumbnailing
 
-class Modello: Identifiable {
+class Modello: Identifiable, ObservableObject {
     
     var id: UUID = UUID()
     var name: String
-    var image: UIImage
-    var modelEntity: ModelEntity
+    @Published var image: UIImage?
+    var modelEntity: ModelEntity?
+    
+    private var cancellableImage: AnyCancellable? = nil
+    private var cancellableModelEntity: AnyCancellable? = nil
     
     init(url: URL) {
         self.name = url.lastPathComponent.replacingOccurrences(of: ".usdz", with: "")
-        self.image = UIImage()
-        self.modelEntity = ModelEntity()
+        //self.image = UIImage()
+        //self.modelEntity = ModelEntity()
         
-        do {
-            loadImage(url: url)
-            self.modelEntity = try ModelEntity.loadModel(contentsOf: url)
-        } catch {
-            fatalError("DEBUG: Unable to load model from URL \(url)")
-        }
+        loadImage(url: url)
+        
+        
+        
+        self.cancellableModelEntity = ModelEntity.loadModelAsync(contentsOf: url)
+            .sink(receiveCompletion: { loadCompletion in
+                switch loadCompletion {
+                case .failure(let error):
+                    print("DEBUG: Unable to load modelEntity for modelName: \(self.name)")
+                    print(error.localizedDescription)
+                case .finished:
+                    break
+                }
+            }, receiveValue: { m in
+                self.modelEntity = m
+                print("DEBUG: ITA Successfully loaded modelEntity for modelName: \(self.name)")
+            })
         
     }
     
@@ -40,8 +54,15 @@ class Modello: Identifiable {
         print("DEBUG: Generating thumbnail for modelName: \(url)")
         
         generator.generateRepresentations(for: request) { (thumbnail, type, error) in
-            print ("DEBUG: \(String(describing: thumbnail))")
-            self.image = thumbnail!.uiImage
+            DispatchQueue.main.async {
+                if thumbnail == nil || error != nil {
+                    print("DEBUG: Unable to generate thumbnail for modelName: \(url)")
+                    return
+                } else {
+                    self.image = thumbnail!.uiImage
+                    print("DEBUG: ITA Successfully loaded modelImage for modelName: \(self.name)")
+                }
+            }
             
         }
     

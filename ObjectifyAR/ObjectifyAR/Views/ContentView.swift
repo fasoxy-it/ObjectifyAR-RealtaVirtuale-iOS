@@ -60,7 +60,7 @@ struct ContentView : View {
                                     print("DEBUG: Added model with name: \(modelli.modelli.last!.image)")
                                     print("DEBUG: Added model with name: \(modelli.modelli.last!.modelEntity)")
                                     
-                                    fileUrl.stopAccessingSecurityScopedResource()
+                                    //fileUrl.stopAccessingSecurityScopedResource()
                                     
                                     isImporting = false
                                 

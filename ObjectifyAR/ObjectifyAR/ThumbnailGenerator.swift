@@ -10,16 +10,13 @@ import SwiftUI
 import Combine
 import UIKit
 
-class ThumbnailGenerator: ObservableObject {
+class ThumbnailGenerator {
     
-    @Published var thumbnailImage: Image?
+    var thumbnailImage: UIImage?
     
-    func generateThumbnail(for resource: String, withExtension: String = "usdz", size: CGSize) {
+    func generateThumbnail(for url: URL) {
         
-        guard let url = Bundle.main.url(forResource: resource, withExtension: withExtension) else {
-            print("DEBUG: Unable to find modelURL for modelName: \(resource)")
-            return
-        }
+        let size = CGSize(width: 100, height: 100)
         
         let scale = UIScreen.main.scale
         
@@ -30,10 +27,10 @@ class ThumbnailGenerator: ObservableObject {
         generator.generateRepresentations(for: request) { (thumbnail, type, error) in
             DispatchQueue.main.async {
                 if thumbnail == nil || error != nil {
-                    print("DEBUG: Unable to generate thumbnail for modelName: \(resource)")
+                    print("DEBUG: Unable to generate thumbnail for modelName: \(url)")
                     return
                 } else {
-                    self.thumbnailImage = Image(uiImage: thumbnail!.uiImage)                
+                    self.thumbnailImage = thumbnail!.uiImage
                 }
             }
         }

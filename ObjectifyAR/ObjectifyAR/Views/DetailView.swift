@@ -38,7 +38,7 @@ struct DetailView: View {
             
             HStack {
                 Spacer()
-                Image(uiImage: (modelli.findModello(name: model!))!.image)
+                Image(uiImage: (modelli.findModello(name: model!))!.image!)
                     .resizable()
                     .frame(width: 150, height: 150)
                     .cornerRadius(15)

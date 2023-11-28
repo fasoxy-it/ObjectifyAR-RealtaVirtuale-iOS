@@ -69,7 +69,7 @@ class CustomARView: ARView {
         
         guard let focusEntity = self.focusEntity else {return}
         
-        let modelEntity = model.modelEntity
+        let modelEntity = model.modelEntity!
         //modelEntity.generateCollisionShapes(recursive: true)
         //modelEntity.scale = [1.0, 1.0, 1.0]
         
