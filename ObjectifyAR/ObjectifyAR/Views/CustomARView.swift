@@ -9,6 +9,7 @@ import SwiftUI
 import RealityKit
 import ARKit
 import FocusEntity
+import AVFoundation
 
 class CustomARView: ARView {
     
@@ -70,9 +71,7 @@ class CustomARView: ARView {
         
         let modelEntity = model.modelEntity
         //modelEntity.generateCollisionShapes(recursive: true)
-        modelEntity.scale = [1.0, 1.0, 1.0]
-        
-        
+        //modelEntity.scale = [1.0, 1.0, 1.0]
         
         let anchorEntity = AnchorEntity(world: focusEntity.position)
         anchorEntity.name = model.name
@@ -90,7 +89,8 @@ class CustomARView: ARView {
          
         DispatchQueue.main.async {
             UIImpactFeedbackGenerator(style: .medium).impactOccurred()
-            self.playAudio(action: "add")
+            //self.playAudio(action: "add")
+            //AudioServicesPlaySystemSound(1013)
         }
         
     }

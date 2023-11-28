@@ -25,13 +25,26 @@ struct DetailView: View {
         
         VStack {
             HStack {
+                Image(systemName: "arrow.backward.square.fill")
+                    .font(.system(size: 50))
+                    .foregroundColor(.blue)
+                    .onTapGesture {
+                        dismiss()
+                    }
+                    .padding(.leading, 10)
+                    .padding(.top, 10)
+                Spacer()
+            }
+            
+            HStack {
                 Spacer()
                 Image(uiImage: (modelli.findModello(name: model!))!.image)
                     .resizable()
                     .frame(width: 150, height: 150)
                     .cornerRadius(15)
                     .shadow(radius: 10)
-                    .padding(.vertical, 100)
+                    .padding(.top, 100)
+                    .padding(.bottom, 100)
                 Spacer()
             }
             
@@ -39,7 +52,6 @@ struct DetailView: View {
                 ZStack {
                     RoundedRectangle(cornerRadius: 15)
                         .foregroundColor(ragno)
-                    ScrollView {
                         VStack(alignment: .leading) {
                             HStack {
                                 Text((modelli.findModello(name: model!))!.name)
@@ -47,22 +59,28 @@ struct DetailView: View {
                                     .fontWeight(.bold)
                             }
                             .padding(.bottom)
-                            HStack {
-                                Text("Description")
-                                    .font(.system(size: 25))
-                                    .fontWeight(.bold)
-                            }
-                            .padding(.bottom)
-                            HStack {
-                                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
-                                    .font(.body)
+                            
+                            ScrollView {
+                                VStack(alignment: .leading) {
+                                    HStack {
+                                        Text("Description")
+                                            .font(.system(size: 25))
+                                            .fontWeight(.bold)
+                                    }
+                                    .padding(.bottom)
+                                    HStack {
+                                        Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+                                            .font(.body)
+                                        
+                                    }
+                                    Spacer()
+                                }
+                                
                                 
                             }
-                            Spacer()
+                            
                         }
                         .padding(.all, 30)
-    
-                    }
                     
                 }
                 
@@ -72,26 +90,6 @@ struct DetailView: View {
         }
         .background(LinearGradient(colors: [ragno, serpente], startPoint: .top, endPoint: .bottom))
         .navigationBarBackButtonHidden(true)
-        .toolbarBackground(.hidden, for: .automatic)
-        
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Image(systemName: "arrow.backward.square.fill")
-                    .font(.system(size: 38))
-                    .foregroundColor(.blue)
-                    .onTapGesture {
-                        dismiss()
-                    }
-                    .padding(.top, 30)
-                    .padding(.leading, -10)
-                
-            }
-        }
-        
-        
-    
-        
-        
     }
     
 
