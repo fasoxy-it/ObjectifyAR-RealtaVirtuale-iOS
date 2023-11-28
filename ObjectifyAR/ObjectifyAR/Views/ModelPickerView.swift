@@ -35,7 +35,7 @@ struct ModelPickerView: View {
             }
         }
         .padding()
-        .background(LinearGradient(colors: [Color(red: 0.109803921568627, green: 0.109803921568627, blue: 0.117647058823529).opacity(0.0), Color(red: 0.109803921568627, green: 0.109803921568627, blue: 0.117647058823529).opacity(0.5)], startPoint: .top, endPoint: .bottom))
+        .background(LinearGradient(colors: [.lightGray.opacity(0.0), .lightGray.opacity(0.5)], startPoint: .top, endPoint: .bottom))
         
     }
     

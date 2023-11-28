@@ -16,9 +16,6 @@ struct DetailView: View {
     
     @Binding var model: String?
     
-    let ragno = Color(red: 0.109803921568627, green: 0.109803921568627, blue: 0.117647058823529)
-    let serpente = Color(red: 0.356862745098039, green: 0.356862745098039, blue: 0.356862745098039)
-
     var body: some View {
         
         VStack {
@@ -49,7 +46,7 @@ struct DetailView: View {
             HStack {
                 ZStack {
                     RoundedRectangle(cornerRadius: 15)
-                        .foregroundColor(ragno)
+                        .foregroundColor(.darkGray)
                         VStack(alignment: .leading) {
                             HStack {
                                 Text((modelli.findModello(name: model!))!.name)
@@ -86,7 +83,7 @@ struct DetailView: View {
             .edgesIgnoringSafeArea(.bottom)
         
         }
-        .background(LinearGradient(colors: [ragno, serpente], startPoint: .top, endPoint: .bottom))
+        .background(LinearGradient(colors: [.darkGray, .lightGray], startPoint: .top, endPoint: .bottom))
         .navigationBarBackButtonHidden(true)
     }
     
