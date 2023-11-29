@@ -16,11 +16,7 @@
 		0BA4126D2AEEB8DC00A4F5A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA4126C2AEEB8DC00A4F5A6 /* ContentView.swift */; };
 		0BA4126F2AEEB8DF00A4F5A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA4126E2AEEB8DF00A4F5A6 /* Assets.xcassets */; };
 		0BA412722AEEB8DF00A4F5A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA412712AEEB8DF00A4F5A6 /* Preview Assets.xcassets */; };
-		0BA412792AEEBD3000A4F5A6 /* jar.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 0BA412782AEEBD3000A4F5A6 /* jar.usdz */; };
-		0BA4127B2AEEBDB500A4F5A6 /* camera.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 0BA4127A2AEEBDB500A4F5A6 /* camera.usdz */; };
 		0BA412802AF13F3500A4F5A6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA4127F2AF13F3500A4F5A6 /* Model.swift */; };
-		0BA412822AF14FFC00A4F5A6 /* toy.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 0BA412812AF14FFC00A4F5A6 /* toy.usdz */; };
-		0BED2A9A2B0CF13D00A3325A /* ThumbnailGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BED2A992B0CF13D00A3325A /* ThumbnailGenerator.swift */; };
 		0BED2A9C2B0CFFA900A3325A /* ModelPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BED2A9B2B0CFFA900A3325A /* ModelPicker.swift */; };
 		0BF827442AFBBD51003351AC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF827432AFBBD51003351AC /* DetailView.swift */; };
 		0BF827492AFD365C003351AC /* CustomARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF827482AFD365C003351AC /* CustomARView.swift */; };
@@ -36,11 +32,7 @@
 		0BA4126C2AEEB8DC00A4F5A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0BA4126E2AEEB8DF00A4F5A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BA412712AEEB8DF00A4F5A6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		0BA412782AEEBD3000A4F5A6 /* jar.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = jar.usdz; sourceTree = "<group>"; };
-		0BA4127A2AEEBDB500A4F5A6 /* camera.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = camera.usdz; sourceTree = "<group>"; };
 		0BA4127F2AF13F3500A4F5A6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		0BA412812AF14FFC00A4F5A6 /* toy.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy.usdz; sourceTree = "<group>"; };
-		0BED2A992B0CF13D00A3325A /* ThumbnailGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailGenerator.swift; sourceTree = "<group>"; };
 		0BED2A9B2B0CFFA900A3325A /* ModelPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPicker.swift; sourceTree = "<group>"; };
 		0BF827432AFBBD51003351AC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		0BF827482AFD365C003351AC /* CustomARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomARView.swift; sourceTree = "<group>"; };
@@ -90,8 +82,6 @@
 			children = (
 				0BA4126A2AEEB8DC00A4F5A6 /* AppDelegate.swift */,
 				0BF827472AFD35C6003351AC /* Views */,
-				0BA4127F2AF13F3500A4F5A6 /* Model.swift */,
-				0BED2A992B0CF13D00A3325A /* ThumbnailGenerator.swift */,
 				0BA4127E2AEECCC300A4F5A6 /* Models */,
 				0B5B852A2B0275F40077302C /* Sounds */,
 				0BA4126E2AEEB8DF00A4F5A6 /* Assets.xcassets */,
@@ -111,9 +101,7 @@
 		0BA4127E2AEECCC300A4F5A6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0BA412782AEEBD3000A4F5A6 /* jar.usdz */,
-				0BA4127A2AEEBDB500A4F5A6 /* camera.usdz */,
-				0BA412812AF14FFC00A4F5A6 /* toy.usdz */,
+				0BA4127F2AF13F3500A4F5A6 /* Model.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -199,10 +187,7 @@
 				0B5B852E2B0276090077302C /* remove.mp3 in Resources */,
 				0B5B852C2B0276030077302C /* add.mp3 in Resources */,
 				0BA412722AEEB8DF00A4F5A6 /* Preview Assets.xcassets in Resources */,
-				0BA412792AEEBD3000A4F5A6 /* jar.usdz in Resources */,
 				0BA4126F2AEEB8DF00A4F5A6 /* Assets.xcassets in Resources */,
-				0BA4127B2AEEBDB500A4F5A6 /* camera.usdz in Resources */,
-				0BA412822AF14FFC00A4F5A6 /* toy.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +204,6 @@
 				0B5B85372B03BC620077302C /* CustomARViewContainer.swift in Sources */,
 				0BF827442AFBBD51003351AC /* DetailView.swift in Sources */,
 				0BA4126D2AEEB8DC00A4F5A6 /* ContentView.swift in Sources */,
-				0BED2A9A2B0CF13D00A3325A /* ThumbnailGenerator.swift in Sources */,
 				0BED2A9C2B0CFFA900A3325A /* ModelPicker.swift in Sources */,
 				0BA4126B2AEEB8DC00A4F5A6 /* AppDelegate.swift in Sources */,
 			);
