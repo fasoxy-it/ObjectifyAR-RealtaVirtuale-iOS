@@ -12,9 +12,7 @@ struct DetailView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @EnvironmentObject var modelli: Modelli
-    
-    @Binding var model: String?
+    @Binding var model: Modello?
     
     var body: some View {
         
@@ -33,7 +31,7 @@ struct DetailView: View {
             
             HStack {
                 Spacer()
-                Image(uiImage: (modelli.findModello(name: model!))!.image!)
+                Image(uiImage: model!.image!)
                     .resizable()
                     .frame(width: 150, height: 150)
                     .cornerRadius(15)
@@ -49,7 +47,7 @@ struct DetailView: View {
                         .foregroundColor(.darkGray)
                         VStack(alignment: .leading) {
                             HStack {
-                                Text((modelli.findModello(name: model!))!.name)
+                                Text(model!.name)
                                     .font(.system(size: 40))
                                     .fontWeight(.bold)
                             }

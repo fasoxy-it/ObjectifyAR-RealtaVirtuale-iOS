@@ -13,16 +13,17 @@ import AVFoundation
 
 class CustomARView: ARView {
     
-    @EnvironmentObject var modelli: Modelli
+    var modelli: Modelli
     
     @Binding var isDetailViewActive: Bool
-    @Binding var tappedModel: String?
+    @Binding var tappedModel: Modello?
     
     var focusEntity: FocusEntity?
     var audioPlayer: AVAudioPlayer?
     
-    init(isDetailViewActive: Binding<Bool>, tappedModel: Binding<String?>) {
+    init(modelli: Modelli, isDetailViewActive: Binding<Bool>, tappedModel: Binding<Modello?>) {
         
+        self.modelli = modelli
         self._isDetailViewActive = isDetailViewActive
         self._tappedModel = tappedModel
         
@@ -279,8 +280,8 @@ extension CustomARView {
                     UIImpactFeedbackGenerator(style: .medium).impactOccurred()
                     print("DEBUG: Tapped anchor with name: \(anchorEntity.name)")
                     playAudio(action: "add")
-                    //tappedModel = modelli.findModello(name: anchorEntity.name)
-                    tappedModel = anchorEntity.name
+                    tappedModel = modelli.findModello(name: anchorEntity.name)
+                    //tappedModel = anchorEntity.name
                     playAudio(action: "click")
                     isDetailViewActive = true
                     

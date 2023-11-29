@@ -16,7 +16,7 @@ struct ContentView : View {
     @StateObject var modelli: Modelli = Modelli()
     
     @State private var selectedModel: Modello?
-    @State private var tappedModel: String?
+    @State private var tappedModel: Modello?
     @State private var isDetailViewActive: Bool = false
     @State private var isImporting: Bool = false
     
