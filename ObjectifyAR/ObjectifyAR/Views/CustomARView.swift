@@ -92,8 +92,10 @@ class CustomARView: ARView {
         self.enableTap()
          
         DispatchQueue.main.async {
+            
             UIImpactFeedbackGenerator(style: .medium).impactOccurred()
             self.playAudio(action: "add")
+            
         }
         
     }
@@ -244,17 +246,16 @@ extension CustomARView {
         if let entity = self.entity(at: location) {
             
             if let anchorEntity = entity.anchor {
+                
                 DispatchQueue.main.async { [self] in
+                    
                     UIImpactFeedbackGenerator(style: .medium).impactOccurred()
-                    entity.transform.scale = [1.0, 1.0, 1.0]
-                    entity.transform.translation = [0.0, 0.0, 0.0]
-                    print("DEBUG: Rotation: \(entity.transform.rotation)")
-                    entity.transform.rotation = simd_quatf(real: 1.0, imag: SIMD3<Float>(0.0, 0.0, 0.0))
-                    print("DEBUG: Rotation: \(entity.transform.rotation)")
                     anchorEntity.removeFromParent()
                     playAudio(action: "remove")
                     print("DEBUG: Removed anchor with name: \(anchorEntity.name)")
+                    
                 }
+                
             }
             
         }
