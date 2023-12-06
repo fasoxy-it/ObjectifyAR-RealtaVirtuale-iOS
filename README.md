@@ -21,7 +21,7 @@ ObjectifyAR offre un'esperienza completa di scansione, modellazione 3D e realtà
 ## Views
 
 <img width="492" alt="Main View" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/ead1f26a-83f4-4d1e-8357-d6f94ef39813"> | <img width="492" alt="Detail View" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/4fe61601-1cd4-4290-bf9c-b8862107dacf"> | <img width="492" alt="Acquisition View" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/b34b29bc-3b41-4c4b-be87-1019bcdd48f5">
-:-------------------------:|:-------------------------:|:-------------------------:
+:-------------------------: | :-------------------------: | :-------------------------:
 **Main** View | **Detail** View | **Acquisition** View
 
 ### Main View
@@ -45,7 +45,7 @@ La Acquisition View consente di aggiungere il modello 3D di un nuovo oggetto all
 ## Demo
 
 <video width="492" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/064eb6aa-fb72-47e6-9f5d-3e684c2d461a"/> |
-:-------------------------:|
+:-------------------------: |
 **Demo** |
 
 ## Target
