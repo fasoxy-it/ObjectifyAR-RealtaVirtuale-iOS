@@ -42,6 +42,14 @@ La Detail View consente di visualizzare il modello 3D dell'oggetto e l'insieme d
 
 La Acquisition View consente di aggiungere il modello 3D di un nuovo oggetto all'insieme di modelli 3D degli oggetti già acquisiti.
 
+## Demo
+
+
+
+https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/064eb6aa-fb72-47e6-9f5d-3e684c2d461a
+
+
+
 ## Target
 
 L'applicazione ha il potenziale per servire diverse categorie di utenti, tra cui:
