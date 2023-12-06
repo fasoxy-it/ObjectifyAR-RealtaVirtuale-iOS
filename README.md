@@ -44,9 +44,9 @@ La Acquisition View consente di aggiungere il modello 3D di un nuovo oggetto all
 
 ## Demo
 
-<video width="492" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/064eb6aa-fb72-47e6-9f5d-3e684c2d461a"/>
-:-------------------------:
-**Demo**
+<video width="492" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/064eb6aa-fb72-47e6-9f5d-3e684c2d461a"/> |
+:-------------------------:|
+**Demo** |
 
 ## Target
 
