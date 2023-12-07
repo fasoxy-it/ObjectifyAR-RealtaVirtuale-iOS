@@ -2,6 +2,9 @@
 
 > Progetto Esame Realtà Virtuale
 
+<img width=10% src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/384eb1c0-947e-4792-8d23-aeb44686af4d">
+
+
 ## Idea
 
 L’idea di base del progetto è quella di realizzare un'applicazione che consente di scansionare e creare modelli tridimensionali di oggetti del mondo reale e di interagire con essi mediante sessioni di realtà aumentata.
