@@ -16,6 +16,7 @@ class Modello: Identifiable, ObservableObject {
     var name: String
     @Published var image: UIImage?
     @Published var modelEntity: ModelEntity?
+    var dimensions: SIMD3<Float>?
     
     init(url: URL) {
         
@@ -31,11 +32,13 @@ class Modello: Identifiable, ObservableObject {
         DispatchQueue.main.async {
             do {
                 self.modelEntity = try ModelEntity.loadModel(contentsOf: url)
+                self.dimensions = self.modelEntity?.model?.mesh.bounds.extents
                 print("DEBUG: Successfully loaded modelEntity for modelName: \(self.name)")
             } catch {
                 print("DEBUG: Unable to load modelEntity for modelName: \(self.name)")
             }
             
+            print("DEBUG: Successfully loaded dimensions for modelName: \(self.name) -> Width:\(self.dimensions?.x), Height:\(self.dimensions?.y), Depth: \(self.dimensions?.z)")
         }
         
     }

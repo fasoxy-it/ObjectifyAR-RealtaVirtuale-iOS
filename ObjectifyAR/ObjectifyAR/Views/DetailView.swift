@@ -56,6 +56,45 @@ struct DetailView: View {
                             ScrollView {
                                 VStack(alignment: .leading) {
                                     HStack {
+                                        Text("Dimensions")
+                                            .font(.system(size: 25))
+                                            .fontWeight(.bold)
+                                    }
+                                    .padding(.bottom)
+                                    HStack {
+                                        VStack(alignment: .leading) {
+                                            HStack {
+                                                HStack(alignment: .center) {
+                                                    Image(systemName: "circle.fill")
+                                                        .font(.system(size: 10))
+                                                }
+                                                
+                                                Text("Width: \(String(format: "%.2f", model!.dimensions!.x * 100)) Cm")
+                                                    .font(.body)
+                                            }
+                                            HStack {
+                                                HStack(alignment: .center) {
+                                                    Image(systemName: "circle.fill")
+                                                        .font(.system(size: 10))
+                                                }
+                                                
+                                                Text("Height: \(String(format: "%.2f", model!.dimensions!.y * 100)) Cm")
+                                                    .font(.body)
+                                            }
+                                            HStack {
+                                                HStack(alignment: .center) {
+                                                    Image(systemName: "circle.fill")
+                                                        .font(.system(size: 10))
+                                                }
+                                                
+                                                Text("Depth: \(String(format: "%.2f", model!.dimensions!.z * 100)) Cm")
+                                                    .font(.body)
+                                            }
+                                   
+                                        }
+                                    }
+                                    .padding(.bottom)
+                                    HStack {
                                         Text("Description")
                                             .font(.system(size: 25))
                                             .fontWeight(.bold)
@@ -68,7 +107,6 @@ struct DetailView: View {
                                     }
                                     Spacer()
                                 }
-                                
                                 
                             }
                             

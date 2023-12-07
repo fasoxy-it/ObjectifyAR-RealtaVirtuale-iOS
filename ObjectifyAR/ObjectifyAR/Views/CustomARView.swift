@@ -73,10 +73,10 @@ class CustomARView: ARView {
         guard let focusEntity = self.focusEntity else {return}
         
         let modelEntity = model.modelEntity!
-        //modelEntity.generateCollisionShapes(recursive: true)
         modelEntity.transform.scale = [1.0, 1.0, 1.0]
         modelEntity.transform.translation = [0.0, 0.0, 0.0]
         modelEntity.transform.rotation = simd_quatf(real: 1.0, imag: SIMD3<Float>(0.0, 0.0, 0.0))
+        modelEntity.collision = CollisionComponent(shapes: [.generateBox(size: model.dimensions!)])
         
         let anchorEntity = AnchorEntity(world: focusEntity.position)
         anchorEntity.name = model.name
