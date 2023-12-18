@@ -119,7 +119,7 @@ struct DetailView: View {
             .edgesIgnoringSafeArea(.bottom)
         
         }
-        .background(LinearGradient(colors: [.darkGray, .lightGray], startPoint: .top, endPoint: .bottom))
+        .background(LinearGradient(colors: [.darkGray, .midGray], startPoint: .top, endPoint: .bottom))
         .navigationBarBackButtonHidden(true)
     }
     

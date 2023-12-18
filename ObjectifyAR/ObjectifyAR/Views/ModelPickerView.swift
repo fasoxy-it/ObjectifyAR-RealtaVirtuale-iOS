@@ -19,7 +19,7 @@ struct ModelPickerView: View {
     var body: some View {
         
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 30) {
+            HStack(spacing: 15) {
                 ForEach(modelli.modelli) { modello in
                     Button(action: {
                         print("DEBUG: Selected model with name: \(modello.name)")
@@ -35,7 +35,7 @@ struct ModelPickerView: View {
             }
         }
         .padding()
-        .background(LinearGradient(colors: [.lightGray.opacity(0.0), .lightGray.opacity(0.5)], startPoint: .top, endPoint: .bottom))
+        .background(LinearGradient(colors: [.midGray.opacity(0.0), .midGray.opacity(0.5)], startPoint: .top, endPoint: .bottom))
         
     }
     

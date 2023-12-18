@@ -72,6 +72,22 @@ struct ContentView : View {
                            
                     }
                     
+                    HStack {
+                        Spacer()
+                        NavigationLink {
+                            DocumentationView()
+                        } label: {
+                            Image(systemName: "info.square.fill")
+                                .font(.system(size: 50))
+                                .foregroundColor(.lightGray)
+                                
+                        }
+                        .padding(.trailing, 10)
+                        
+                    }
+                    
+                    
+                    
                     Spacer()
                     
                     if modelli.modelli.count > 0 {

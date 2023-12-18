@@ -13,6 +13,7 @@
 		0B5B85322B038D6A0077302C /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 0B5B85312B038D6A0077302C /* FocusEntity */; };
 		0B5B85352B038F7F0077302C /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 0B5B85342B038F7F0077302C /* FocusEntity */; };
 		0B5B85372B03BC620077302C /* CustomARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B85362B03BC620077302C /* CustomARViewContainer.swift */; };
+		0B62F73E2B308747005662C0 /* DocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B62F73D2B308747005662C0 /* DocumentationView.swift */; };
 		0BA4126B2AEEB8DC00A4F5A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA4126A2AEEB8DC00A4F5A6 /* AppDelegate.swift */; };
 		0BA4126D2AEEB8DC00A4F5A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA4126C2AEEB8DC00A4F5A6 /* ContentView.swift */; };
 		0BA4126F2AEEB8DF00A4F5A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA4126E2AEEB8DF00A4F5A6 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		0B0A4BB72B17BB9A00444AD6 /* remove.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = remove.mp3; sourceTree = "<group>"; };
 		0B0A4BB92B17BBA200444AD6 /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click.mp3; sourceTree = "<group>"; };
 		0B5B85362B03BC620077302C /* CustomARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomARViewContainer.swift; sourceTree = "<group>"; };
+		0B62F73D2B308747005662C0 /* DocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationView.swift; sourceTree = "<group>"; };
 		0BA412672AEEB8DC00A4F5A6 /* ObjectifyAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjectifyAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA4126A2AEEB8DC00A4F5A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BA4126C2AEEB8DC00A4F5A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				0B5B85362B03BC620077302C /* CustomARViewContainer.swift */,
 				0BED2A9B2B0CFFA900A3325A /* ModelPicker.swift */,
 				0BF8274A2AFD36F3003351AC /* ModelPickerView.swift */,
+				0B62F73D2B308747005662C0 /* DocumentationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				0BA4126D2AEEB8DC00A4F5A6 /* ContentView.swift in Sources */,
 				0BED2A9C2B0CFFA900A3325A /* ModelPicker.swift in Sources */,
 				0BA4126B2AEEB8DC00A4F5A6 /* AppDelegate.swift in Sources */,
+				0B62F73E2B308747005662C0 /* DocumentationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
