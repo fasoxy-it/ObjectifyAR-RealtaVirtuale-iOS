@@ -9,6 +9,7 @@ import UIKit
 import RealityKit
 import Combine
 import QuickLookThumbnailing
+import SwiftUI
 
 class Modello: Identifiable, ObservableObject {
     
@@ -17,6 +18,7 @@ class Modello: Identifiable, ObservableObject {
     @Published var image: UIImage?
     @Published var modelEntity: ModelEntity?
     var dimensions: SIMD3<Float>?
+    @Published var description: String?
     
     init(url: URL) {
         
@@ -26,6 +28,8 @@ class Modello: Identifiable, ObservableObject {
         loadModel(url: url)
         
     }
+    
+    
     
     func loadModel(url: URL) {
         
@@ -63,6 +67,10 @@ class Modello: Identifiable, ObservableObject {
             
         }
     
+    }
+    
+    func changeDescription(description: String) {
+        self.description = description
     }
     
 }
