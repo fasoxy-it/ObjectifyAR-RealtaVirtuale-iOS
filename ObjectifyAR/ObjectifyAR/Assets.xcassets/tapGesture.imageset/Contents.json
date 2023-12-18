@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Tap Gesture.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
