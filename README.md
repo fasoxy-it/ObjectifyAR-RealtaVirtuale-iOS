@@ -23,9 +23,9 @@ ObjectifyAR offre un'esperienza completa di scansione, modellazione 3D e realtà
 
 ## Views
 
-<img width="492" alt="Main View" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/ead1f26a-83f4-4d1e-8357-d6f94ef39813"> | <img width="492" alt="Detail View" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/4fe61601-1cd4-4290-bf9c-b8862107dacf"> | <img width="492" alt="Acquisition View" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/b34b29bc-3b41-4c4b-be87-1019bcdd48f5">
-:-------------------------: | :-------------------------: | :-------------------------:
-**Main** View | **Detail** View | **Acquisition** View
+<img width="492" alt="Main View" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/94125d6b-268a-4b47-a738-3414c8796943"> | <img width="492" alt="Documentation View" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/3a27e236-842b-40ab-a766-4edd88e5a5a7"> | <img width="492" alt="Acquisition View" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/8e1fc7d4-1756-47a3-931d-459ba66aa925"> | <img width="492" alt="Detail View" src="https://github.com/fasoxy-it/ObjectifyAR-RealtaVirtuale-iOS/assets/58709856/7938a501-37af-4178-96f4-a9fd4a7970c2">
+:-------------------------: | :-------------------------: | :-------------------------: | :-------------------------:
+**Main** View | **Documentation** View | **Acquisition** View | **Detail** View
 
 ### Main View
 
