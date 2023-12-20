@@ -160,7 +160,6 @@ extension CustomARView {
                         
                         if compareSIMD3(entityScale: scaleGesture.entity!.transform.scale) == true {
                             
-                            
                             if Int((entity.scale.x * 100).rounded()) == 101 {
                                 print("DEBUG: Prova \(entity.scale)")
                                 entity.scale = [1.1, 1.1, 1.1]
@@ -280,7 +279,7 @@ extension CustomARView {
                     
                     UIImpactFeedbackGenerator(style: .medium).impactOccurred()
                     print("DEBUG: Tapped anchor with name: \(anchorEntity.name)")
-                    playAudio(action: "add")
+                    //playAudio(action: "add")
                     tappedModel = modelli.findModello(name: anchorEntity.name)
                     //tappedModel = anchorEntity.name
                     playAudio(action: "click")
